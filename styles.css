@@ -1,0 +1,128 @@
+/* 初始化樣式，清除預設邊距與填充 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 設定 HTML 和 Body 滿版 */
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+/* 主容器設定為垂直排列 */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 主視覺區塊設定背景圖片 */
+.visual {
+    flex: 1;
+    background: url('img/RapidTA.gif') center/cover no-repeat;
+    width: 100%;
+    height: 85vh;
+    /* 調整高度，讓 button 區塊變高 1/2 */
+}
+
+/* 按鈕區塊樣式 */
+.button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    /* 增加 padding 提高區塊高度 */
+    background: rgba(43, 84, 125, 0.92);
+    /* 深藍色背景，帶透明度 */
+    height: 25vh;
+    /* 增加高度，原來的 1.5 倍 */
+}
+
+/* 按鈕盒子樣式 */
+.button-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    width: 250px;
+    height: 150px;
+    border-radius: 110px 110px 8px 8px;
+    /* 上方圓弧、下方直角 */
+    overflow: hidden;
+}
+
+/* 圖示樣式設定 */
+.icon {
+    width: 60px;
+    /* 調整圖示大小 */
+    height: 60px;
+    transition: opacity 0.3s ease;
+}
+
+/* 文字樣式設定 */
+.text {
+    font-size: 1.4rem;
+    /* 調整文字大小以適應更大的按鈕 */
+    font-weight: bold;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+}
+
+/* 滑鼠懸停時的動畫效果 */
+.button-box:hover .icon {
+    opacity: 0;
+}
+
+.button-box:hover .text {
+    opacity: 1;
+}
+
+/* 圖示與文字樣式 */
+.button-box img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.button-box span {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 滑鼠懸停時的變化效果 */
+.button-box:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* 響應式設計（小螢幕） */
+@media (max-width: 768px) {
+    .button-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        height: auto;
+        /* 讓高度適應小螢幕 */
+    }
+
+    .button-box {
+        width: 80%;
+        max-width: 200px;
+        /* 限制最大寬度，避免過寬 */
+        padding: 15px;
+        height: 120px;
+        /* 略縮小按鈕以適應小螢幕 */
+    }
+}
