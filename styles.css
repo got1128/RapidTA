@@ -62,9 +62,9 @@ html {
 
 /* 圖示樣式設定 */
 .icon {
-    width: 60px;
+    width: 90px;
     /* 調整圖示大小 */
-    height: 60px;
+    height: 90px;
     transition: opacity 0.3s ease;
 }
 
@@ -119,10 +119,10 @@ html {
 
     .button-box {
         width: 80%;
-        max-width: 200px;
+        max-width: 150px;
         /* 限制最大寬度，避免過寬 */
         padding: 15px;
-        height: 120px;
+        height: 80px;
         /* 略縮小按鈕以適應小螢幕 */
     }
 }

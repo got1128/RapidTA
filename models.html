@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>models</title>
+    <title>機型展示</title>
+    <link rel="stylesheet" href="styles_models.css">
 </head>
 
 <body>
-    <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdSxeD2cPzIz3iVCP3SCM7mLOigr4thZITAKu6LvIQ83nyS6Q/viewform?embedded=true"
-        width="649" height="1307" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+    <!-- 頁首：LOGO + 挑選機型連結 -->
+    <header>
+        <img src="img/LOGO_RapidTA.png" alt="品牌 LOGO" class="logo">
+        <a href="select-model.html" class="select-link">幫助挑選機型</a>
+    </header>
+
+    <!-- 機型展示區 -->
+    <div class="model-container">
+        <div class="model-box tall">
+            <img src="img/RTA.png" alt="機型1" class="machine">
+            <div class="bg bg-1"></div> <!-- 背景1 -->
+        </div>
+        <div class="model-box">
+            <img src="img/RTAHD.png" alt="機型2" class="machine">
+            <div class="bg bg-2"></div> <!-- 背景2 -->
+        </div>
+        <div class="model-box">
+            <img src="img/RTAPLUS.png" alt="機型3" class="machine">
+            <div class="bg bg-3"></div> <!-- 背景3 -->
+        </div>
+        <div class="model-box tall">
+            <img src="img/RTAMAX.png" alt="機型4" class="machine">
+            <div class="bg bg-4"></div> <!-- 背景4 -->
+        </div>
+    </div>
+    </div>
 </body>
 
 </html>

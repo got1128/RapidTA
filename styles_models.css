@@ -1,0 +1,116 @@
+/* 初始化樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 頁面背景設定 */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* LOGO 和選擇機型連結 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+}
+
+.logo {
+    height: 60px;
+    /* LOGO 大小 */
+}
+
+.select-link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b547d;
+    background: #e0e7ff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.select-link:hover {
+    background: #b3c3ff;
+}
+
+/* 機型區塊 */
+.model-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    height: 65vh;
+    /* 讓機型區域佔頁面 2/3 */
+    padding-top: 30px;
+}
+
+/* 每個機型的外框 */
+.model-box {
+    position: relative;
+    width: 180px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 左右機型比中間機型高 20px */
+.model-box.tall {
+    height: 270px;
+}
+
+/* 機型圖片 */
+.machine {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+    /* 讓機器在上層 */
+}
+
+/* 背景圖區塊 */
+.bg {
+    position: absolute;
+    bottom: -20px;
+    width: 200px;
+    height: 150px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    /* 背景圖在底層 */
+}
+
+/* 針對不同機型設定不同背景 */
+.bg-1 {
+    background: url('img/bg_RTA.png') center/cover no-repeat;
+}
+
+.bg-2 {
+    background: url('img/bg_RTAHD.png') center/cover no-repeat;
+}
+
+.bg-3 {
+    background: url('img/bg_RTAPLUS.png') center/cover no-repeat;
+}
+
+.bg-4 {
+    background: url('img/bg_RTAMAX.png') center/cover no-repeat;
+}
+
+/* 滑鼠懸停效果 */
+.model-box:hover .machine {
+    transform: scale(1.1);
+    /* 機型放大 */
+}
+
+.model-box:hover .bg {
+    transform: scale(1);
+    /* 背景圖維持固定大小 */
+}
