@@ -143,6 +143,12 @@ html {
         /* 讓高度適應小螢幕 */
     }
 
+    .button-box img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
     .button-box {
         width: 80%;
         max-width: 150px;

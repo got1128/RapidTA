@@ -31,11 +31,17 @@ header {
     text-decoration: none;
     font-size: 24px;
     font-weight: bold;
-    color: #2b547d;
-    background: #e0e7ff;
+    color: #ffffff;
+    background: #4974a1;
     padding: 15px 20px;
-    border-radius: 8px;
+    border-radius: 25px;
     transition: 0.3s;
+    display: flex;
+    /* 啟用 Flexbox */
+    align-items: center;
+    /* 垂直置中 */
+    gap: 8px;
+    /* 圖示和文字之間的間距 */
 }
 
 .select-link:hover {
@@ -157,5 +163,50 @@ header {
     .bg {
         width: 120px;
         height: 120px;
+    }
+
+    .select-link {
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        /* 距離底部 20px */
+        right: 20px;
+        /* 距離右側 20px */
+        background-color: #4974a1;
+        /* 醒目的背景顏色 */
+        color: white;
+        /* 文字顏色 */
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        /* 確保按鈕浮在最上層 */
+
+        display: flex;
+        /* 啟用 Flexbox */
+        align-items: center;
+        /* 垂直置中 */
+        gap: 8px;
+        /* 圖示和文字之間的間距 */
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        /* 讓 LOGO 和按鈕垂直排列 */
+        align-items: center;
+        /* 讓內容置中 */
+        text-align: center;
+        padding: 10px 0;
+        /* 增加內邊距 */
+    }
+
+    .logo {
+        max-width: 150px;
+        /* 控制 LOGO 大小，防止太大 */
+        height: auto;
     }
 }
