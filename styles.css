@@ -19,14 +19,40 @@ html {
     height: 100vh;
 }
 
-/* 主視覺區塊設定背景圖片 */
+/* ✅ 主視覺區塊 */
 .visual {
+    position: relative;
+    /* 讓 LOGO 可以絕對定位 */
     flex: 1;
-    background: url('img/RapidTA.gif') center/cover no-repeat;
+    background: url('img_index/RAPIDTA.gif') center/cover no-repeat;
     width: 100%;
     height: 85vh;
-    /* 調整高度，讓 button 區塊變高 1/2 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* ✅ LOGO 置中 */
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    /* 根據需求調整 LOGO 大小 */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ✅ 滑鼠經過 LOGO 時移開 */
+.logo:hover {
+    transform: translate(-50%, -50%) translateX(20px);
+    /* LOGO 向右移動 */
+    opacity: 0;
+    /* 增加透明度變化 */
+}
+
+
 
 /* 按鈕區塊樣式 */
 .button-section {
@@ -73,7 +99,7 @@ html {
     font-size: 1.4rem;
     /* 調整文字大小以適應更大的按鈕 */
     font-weight: bold;
-    color: #333;
+    color: #2379bb;
     opacity: 0;
     transition: opacity 0.3s ease;
     position: absolute;
@@ -98,7 +124,7 @@ html {
 .button-box span {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #333;
+    color: rgba(43, 84, 125, 0.92);
 }
 
 /* 滑鼠懸停時的變化效果 */

@@ -9,7 +9,8 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: #669bbb;
+    /* 設定背景顏色為 #669bbb */
 }
 
 /* LOGO 和選擇機型連結 */
@@ -28,11 +29,11 @@ header {
 
 .select-link {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     color: #2b547d;
     background: #e0e7ff;
-    padding: 10px 15px;
+    padding: 15px 20px;
     border-radius: 8px;
     transition: 0.3s;
 }
@@ -43,74 +44,118 @@ header {
 
 /* 機型區塊 */
 .model-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 30px;
-    height: 65vh;
-    /* 讓機型區域佔頁面 2/3 */
-    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 電腦版：4 欄排列 */
+    padding: 20px;
+    max-width: 100%;
+    margin-top: 10%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 每個機型的外框 */
+/* 滑鼠懸停時的遮罩背景 */
+.model-box::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* 半透明背景 */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* 每個機型盒子 */
 .model-box {
     position: relative;
-    width: 180px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    overflow: hidden;
 }
 
-/* 左右機型比中間機型高 20px */
-.model-box.tall {
-    height: 270px;
-}
 
 /* 機型圖片 */
 .machine {
     max-width: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     position: relative;
     z-index: 2;
     /* 讓機器在上層 */
 }
 
-/* 背景圖區塊 */
+/* 背景圖片 */
 .bg {
     position: absolute;
-    bottom: -20px;
-    width: 200px;
-    height: 150px;
-    transition: transform 0.3s ease;
-    z-index: 1;
-    /* 背景圖在底層 */
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* 針對不同機型設定不同背景 */
 .bg-1 {
-    background: url('img/bg_RTA.png') center/cover no-repeat;
+    background: url('img_models/bg_RTA.png') center/cover no-repeat;
 }
 
 .bg-2 {
-    background: url('img/bg_RTAHD.png') center/cover no-repeat;
+    background: url('img_models/bg_RTAHD.png') center/cover no-repeat;
 }
 
 .bg-3 {
-    background: url('img/bg_RTAPLUS.png') center/cover no-repeat;
+    background: url('img_models/bg_RTAPLUS.png') center/cover no-repeat;
 }
 
 .bg-4 {
-    background: url('img/bg_RTAMAX.png') center/cover no-repeat;
+    background: url('img_models/bg_RTAMAX.png') center/cover no-repeat;
 }
 
-/* 滑鼠懸停效果 */
+/* 滑鼠懸停時，機器圖片放大並置中 */
 .model-box:hover .machine {
+    /* 放大機器圖片 */
+    height: auto;
+    z-index: 100;
     transform: scale(1.1);
-    /* 機型放大 */
 }
 
+/* 滑鼠懸停時，背景圖片放大 */
 .model-box:hover .bg {
-    transform: scale(1);
-    /* 背景圖維持固定大小 */
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 滑鼠懸停時，顯示半透明遮罩 */
+.model-box:hover::after {
+    opacity: 1;
+}
+
+/* === 響應式設計 (手機版) === */
+@media (max-width: 768px) {
+    .model-container {
+        grid-template-columns: 1fr;
+        /* 手機版變成單欄排列 */
+        gap: 10px;
+    }
+
+    .model-box.tall {
+        transform: none;
+        /* 取消高度差 */
+    }
+
+    .machine {
+        width: 80%;
+        /* 讓機器圖片縮小適應小螢幕 */
+    }
+
+    .bg {
+        width: 120px;
+        height: 120px;
+    }
 }
