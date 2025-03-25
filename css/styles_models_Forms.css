@@ -33,14 +33,14 @@ header {
     /* 按鈕的寬度縮小 */
     height: 80px;
     /* 按鈕的高度縮小 */
-    border: 4px solid #fff;
+    border: 4px solid #ffd0d0;
     /* 邊框顏色 */
     border-radius: 15px;
     overflow: hidden;
     /* 讓圖片不會超出圓角 */
     transition: transform 0.3s ease;
     /* 增加過渡效果 */
-    background-color: #ffffff;
+    background-color: #fa8c8c;
 }
 
 .button:hover {
@@ -62,7 +62,6 @@ header {
     height: 84vh;
     /* 讓表單置中整個視窗 */
     background-color: #669bbb;
-    /* 這裡設定背景色 */
     /* 背景底色（淡色） */
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
