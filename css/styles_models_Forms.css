@@ -1,0 +1,71 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86.5vh;
+    /* 讓表單置中整個視窗 */
+    background-color: #669bbb;
+    /* 這裡設定背景色 */
+    /* 背景底色（淡色） */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    /* 調整格子大小 */
+}
+
+/* LOGO 和選擇機型連結 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #669bbb;
+}
+
+
+.logo {
+    height: 60px;
+    /* LOGO 大小 */
+}
+
+iframe {
+    width: 80%;
+    max-width: 640px;
+    height: 80vh;
+    border-radius: 10px;
+    /* 如果想讓表單有圓角 */
+    background: white;
+    /* 確保表單有白色背景 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* 增加陰影讓表單更突出 */
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        background-color: #5588aa;
+        /* 手機版用不同的藍色 */
+    }
+
+    iframe {
+        width: 90%;
+        height: 70vh;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        /* 讓 LOGO 和按鈕垂直排列 */
+        align-items: center;
+        /* 讓內容置中 */
+        text-align: center;
+        padding: 10px 0;
+        /* 增加內邊距 */
+    }
+
+    .logo {
+        max-width: 150px;
+        /* 控制 LOGO 大小，防止太大 */
+        height: auto;
+    }
+}

@@ -24,7 +24,7 @@ html {
     position: relative;
     /* 讓 LOGO 可以絕對定位 */
     flex: 1;
-    background: url('img_index/RAPIDTA.gif') center/cover no-repeat;
+    background: url('/img_index/RAPIDTA.gif') center/cover no-repeat;
     width: 100%;
     height: 85vh;
     display: flex;
