@@ -1,19 +1,3 @@
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 86.5vh;
-    /* 讓表單置中整個視窗 */
-    background-color: #669bbb;
-    /* 這裡設定背景色 */
-    /* 背景底色（淡色） */
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px;
-    /* 調整格子大小 */
-}
-
 /* LOGO 和選擇機型連結 */
 header {
     display: flex;
@@ -23,10 +7,68 @@ header {
     background: #669bbb;
 }
 
-
 .logo {
     height: 60px;
     /* LOGO 大小 */
+}
+
+/* 在header內顯示四個按鈕 */
+.header-buttons {
+    display: flex;
+    justify-content: flex-end;
+    /* 讓按鈕靠右 */
+    align-items: center;
+    width: 50%;
+    margin-right: 0;
+    /* 使元素靠右 */
+    position: relative;
+    gap: 20px;
+    /* 按鈕間距縮小 */
+}
+
+/* 按鈕樣式 */
+.button {
+    display: inline-block;
+    width: 80px;
+    /* 按鈕的寬度縮小 */
+    height: 80px;
+    /* 按鈕的高度縮小 */
+    border: 4px solid #fff;
+    /* 邊框顏色 */
+    border-radius: 15px;
+    overflow: hidden;
+    /* 讓圖片不會超出圓角 */
+    transition: transform 0.3s ease;
+    /* 增加過渡效果 */
+    background-color: #ffffff;
+}
+
+.button:hover {
+    background-color: #083f5c;
+    /* 滑鼠懸停時的背景顏色 */
+}
+
+.button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 保持圖片比例，避免變形 */
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 84vh;
+    /* 讓表單置中整個視窗 */
+    background-color: #669bbb;
+    /* 這裡設定背景色 */
+    /* 背景底色（淡色） */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    /* 調整格子大小 */
 }
 
 iframe {
@@ -42,11 +84,6 @@ iframe {
 }
 
 @media (max-width: 768px) {
-    .form-container {
-        background-color: #5588aa;
-        /* 手機版用不同的藍色 */
-    }
-
     iframe {
         width: 90%;
         height: 70vh;
@@ -67,5 +104,29 @@ iframe {
         max-width: 150px;
         /* 控制 LOGO 大小，防止太大 */
         height: auto;
+    }
+
+    .header-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .button img {
+        object-fit: contain;
+    }
+
+    .form-container {
+        background-color: #5588aa;
+        /* 手機版用不同的藍色 */
     }
 }
