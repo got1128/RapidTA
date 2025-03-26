@@ -7,13 +7,17 @@ header {
     background: #669bbb;
 }
 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 .logo {
     height: 60px;
     /* LOGO 大小 */
 }
 
 /* 在header內顯示四個按鈕 */
-.header-buttons {
+.button-section {
     display: flex;
     justify-content: flex-end;
     /* 讓按鈕靠右 */
@@ -27,12 +31,13 @@ header {
 }
 
 /* 按鈕樣式 */
-.button {
-    display: inline-block;
+.button-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 80px;
-    /* 按鈕的寬度縮小 */
     height: 80px;
-    /* 按鈕的高度縮小 */
     border: 4px solid #ffd0d0;
     /* 邊框顏色 */
     border-radius: 15px;
@@ -43,16 +48,37 @@ header {
     background-color: #fa8c8c;
 }
 
-.button:hover {
-    background-color: #083f5c;
+.button-box:hover {
+    background-color: #ffd0d0;
     /* 滑鼠懸停時的背景顏色 */
 }
 
-.button img {
-    width: 100%;
-    height: 100%;
+.icon {
+    width: 80%;
+    height: 80%;
     object-fit: cover;
-    /* 保持圖片比例，避免變形 */
+    transition: opacity 0.3s ease;
+}
+
+/* 文字樣式設定 */
+.text {
+    font-size: 1.2rem;
+    /* 調整文字大小以適應更大的按鈕 */
+    font-weight: bold;
+    color: #669bbb;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+}
+
+
+/* 滑鼠懸停時的動畫效果 */
+.button-box:hover .icon {
+    opacity: 0;
+}
+
+.button-box:hover .text {
+    opacity: 1;
 }
 
 .form-container {
@@ -71,8 +97,8 @@ header {
 }
 
 iframe {
-    width: 80%;
-    max-width: 640px;
+    width: 90%;
+    max-width: 740px;
     height: 80vh;
     border-radius: 10px;
     /* 如果想讓表單有圓角 */
@@ -105,7 +131,7 @@ iframe {
         height: auto;
     }
 
-    .header-buttons {
+    .button-section {
         display: flex;
         justify-content: space-evenly;
         position: fixed;
@@ -115,12 +141,12 @@ iframe {
         z-index: 10;
     }
 
-    .button {
+    .button-box {
         width: 50px;
         height: 50px;
     }
 
-    .button img {
+    .icon {
         object-fit: contain;
     }
 
