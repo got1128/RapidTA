@@ -143,7 +143,7 @@ header {
 }
 
 /* === 響應式設計 (手機版) === */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .model-container {
         grid-template-columns: 1fr;
         /* 手機版變成單欄排列 */
