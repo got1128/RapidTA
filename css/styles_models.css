@@ -144,25 +144,22 @@ header {
 
 /* === 響應式設計 (手機版) === */
 @media (max-width: 1200px) {
-    .model-container {
-        grid-template-columns: 1fr;
-        /* 手機版變成單欄排列 */
-        gap: 10px;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        /* 讓 LOGO 和按鈕垂直排列 */
+        align-items: center;
+        /* 讓內容置中 */
+        text-align: center;
+        padding: 10px 0;
+        /* 增加內邊距 */
     }
 
-    .model-box.tall {
-        transform: none;
-        /* 取消高度差 */
-    }
-
-    .machine {
-        width: 80%;
-        /* 讓機器圖片縮小適應小螢幕 */
-    }
-
-    .bg {
-        width: 120px;
-        height: 120px;
+    .logo {
+        max-width: 150px;
+        /* 控制 LOGO 大小，防止太大 */
+        height: auto;
     }
 
     .select-link {
@@ -193,20 +190,24 @@ header {
         /* 圖示和文字之間的間距 */
     }
 
-    header {
-        display: flex;
-        flex-direction: column;
-        /* 讓 LOGO 和按鈕垂直排列 */
-        align-items: center;
-        /* 讓內容置中 */
-        text-align: center;
-        padding: 10px 0;
-        /* 增加內邊距 */
+    .model-container {
+        grid-template-columns: 1fr;
+        /* 手機版變成單欄排列 */
+        gap: 10px;
     }
 
-    .logo {
-        max-width: 150px;
-        /* 控制 LOGO 大小，防止太大 */
-        height: auto;
+    .model-box.tall {
+        transform: none;
+        /* 取消高度差 */
+    }
+
+    .machine {
+        width: 80%;
+        /* 讓機器圖片縮小適應小螢幕 */
+    }
+
+    .bg {
+        width: 240px;
+        height: 240px;
     }
 }
