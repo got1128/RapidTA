@@ -9,7 +9,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     text-align: center;
-    background-color: #669bbb;
+    background: url('../img_models/backgrund3.png') center/cover no-repeat;
     /* 設定背景顏色為 #669bbb */
 }
 
