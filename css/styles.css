@@ -63,7 +63,7 @@ html {
     gap: 30px;
     padding: 30px;
     /* 增加 padding 提高區塊高度 */
-    background: rgba(43, 84, 125, 0.92);
+    background: #285484;
     /* 深藍色背景，帶透明度 */
     height: 25vh;
     /* 增加高度，原來的 1.5 倍 */

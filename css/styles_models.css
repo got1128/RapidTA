@@ -10,7 +10,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     text-align: center;
     background: url('../img_models/backgrund3.png') center/cover no-repeat;
-    /* 設定背景顏色為 #669bbb */
+    background-color: #c3764c;
 }
 
 /* LOGO 和選擇機型連結 */
@@ -91,37 +91,6 @@ header {
     position: relative;
     z-index: 2;
     /* 讓機器在上層 */
-}
-
-/* 背景圖片 */
-.bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    background-size: cover;
-    background-position: center;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* 針對不同機型設定不同背景 */
-.bg-1 {
-    background: url('../img_models/bg_RTA.png') center/cover no-repeat;
-}
-
-.bg-2 {
-    background: url('../img_models/bg_RTAHD.png') center/cover no-repeat;
-}
-
-.bg-3 {
-    background: url('../img_models/bg_RTAPLUS.png') center/cover no-repeat;
-}
-
-.bg-4 {
-    background: url('../img_models/bg_RTAMAX.png') center/cover no-repeat;
 }
 
 /* 滑鼠懸停時，機器圖片放大並置中 */
