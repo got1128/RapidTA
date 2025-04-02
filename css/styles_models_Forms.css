@@ -3,8 +3,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 0px 40px;
     background: #669bbb;
+    height: 14vh;
 }
 
 body {
@@ -26,7 +27,7 @@ body {
     margin-right: 0;
     /* 使元素靠右 */
     position: relative;
-    gap: 20px;
+    gap: 20px 20px;
     /* 按鈕間距縮小 */
 }
 
@@ -36,8 +37,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border: 4px solid #ffd0d0;
     /* 邊框顏色 */
     border-radius: 15px;
@@ -97,9 +98,9 @@ body {
 }
 
 iframe {
-    width: 90%;
+    width: 80vh;
     max-width: 740px;
-    height: 80vh;
+    height: 75vh;
     border-radius: 10px;
     /* 如果想讓表單有圓角 */
     background: white;
@@ -109,6 +110,7 @@ iframe {
 }
 
 @media (max-width: 768px) {
+
     iframe {
         width: 90%;
         height: 70vh;
@@ -123,6 +125,7 @@ iframe {
         text-align: center;
         padding: 10px 0;
         /* 增加內邊距 */
+        height: auto;
     }
 
     .logo {
