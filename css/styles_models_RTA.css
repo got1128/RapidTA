@@ -1,13 +1,15 @@
 body {
     background: url('../img_models/RTA/BG.svg') center/cover no-repeat;
+    margin: 0;
 }
 
 .container {
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 98vh;
     display: flex;
     flex-direction: column;
+    margin: auto;
     align-items: center;
 }
 
@@ -38,11 +40,11 @@ body {
     /* 讓左、右機器圖片分佈在 LOGO 兩側 */
     align-items: flex-end;
     /* 右邊圖片與左邊圖片靠下對齊 */
-    width: 75%;
+    width: 90%;
     height: 65%;
     position: relative;
     /* 讓背景圖能正確疊在下面 */
-    margin-top: -100px;
+    margin-top: -100px auto;
     /* 向上移動，使機器圖片與 info 稍微重疊 */
     z-index: 5;
     /* 確保機器圖片覆蓋 info */
@@ -53,7 +55,6 @@ body {
     /* 調整機器圖片大小 */
     max-width: 500px;
     margin-bottom: 30px;
-
     /* 往上移動 30px，可自行調整 */
 }
 
@@ -61,7 +62,6 @@ body {
     width: 50vh;
     /* 調整機器圖片大小 */
     max-width: 400px;
-    margin-bottom: 20px;
 }
 
 .logo {
@@ -95,7 +95,7 @@ body {
 
 
 /* 手機 (螢幕寬度小於 768px) */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     body {
         background: #85B1DE;
     }
@@ -104,11 +104,11 @@ body {
         flex-direction: column;
         /* 讓 info 內容垂直排列 */
         align-items: center;
-        gap: 10px;
+        width: 100%;
     }
 
     .info img {
-        width: 40vh;
+        width: 75%;
     }
 
     .models {
