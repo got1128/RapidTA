@@ -1,11 +1,3 @@
-/* 初始化樣式，清除預設邊距與填充 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* 設定 HTML 和 Body 滿版 */
 body,
 html {
     width: 100%;
@@ -13,157 +5,62 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* 主容器設定為垂直排列 */
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-/* ✅ 主視覺區塊 */
-.visual {
-    position: relative;
-    /* 讓 LOGO 可以絕對定位 */
-    flex: 1;
-    background: url('../img_index/RAPIDTA.gif') center/cover no-repeat;
-    width: 100%;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ✅ LOGO 置中 */
 .logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 25%;
     max-width: 250px;
-    /* 根據需求調整 LOGO 大小 */
     height: auto;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* ✅ 滑鼠經過 LOGO 時移開 */
 .logo:hover {
-    transform: translate(-50%, -50%) translateX(20px);
-    /* LOGO 向右移動 */
+    transform: translateX(20px);
     opacity: 0;
-    /* 增加透明度變化 */
 }
 
-
-
-/* 按鈕區塊樣式 */
-.button-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 30px;
-    /* 增加 padding 提高區塊高度 */
-    background: #285484;
-    /* 深藍色背景，帶透明度 */
-    height: 25vh;
-    /* 增加高度，原來的 1.5 倍 */
-}
-
-/* 按鈕盒子樣式 */
 .button-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 25px;
-    background: rgba(255, 255, 255, 0.6);
+    width: 180px;
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 110px 110px 16px 16px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6), 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    cursor: pointer;
+    border: 2px solid transparent;
     position: relative;
-    width: 25%;
-    max-width: 220px;
-    height: 98%;
-    max-height: 200px;
-    border-radius: 110px 110px 8px 8px;
-    /* 上方圓弧、下方直角 */
     overflow: hidden;
+    margin: 10px;
 }
 
-/* 圖示樣式設定 */
+.button-box:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6), 0 12px 25px rgba(0, 0, 0, 0.2);
+    border: 2px solid #fff;
+}
+
 .icon {
-    width: 70%;
-    max-width: 120px;
-    /* 調整圖示大小 */
+    width: 60px;
     height: auto;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 文字樣式設定 */
+.button-box:hover .icon {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 0;
+}
+
 .text {
-    font-size: 1.4rem;
-    /* 調整文字大小以適應更大的按鈕 */
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #2379bb;
     opacity: 0;
-    transition: opacity 0.3s ease;
     position: absolute;
-}
-
-/* 滑鼠懸停時的動畫效果 */
-.button-box:hover .icon {
-    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .button-box:hover .text {
     opacity: 1;
 }
 
-.button-box span {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: rgba(43, 84, 125, 0.92);
-}
-
-/* 滑鼠懸停時的變化效果 */
-.button-box:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
-}
-
-/* 響應式設計（小螢幕） */
-@media (max-width: 768px) {
-    .button-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        height: auto;
-        /* 讓高度適應小螢幕 */
-    }
-
-    .button-box img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
-    }
-
-    .button-box {
-        width: 80%;
-        max-width: 150px;
-        /* 限制最大寬度，避免過寬 */
-        padding: 15px;
-        height: 80px;
-        /* 略縮小按鈕以適應小螢幕 */
-    }
-
-    .logo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80px;
-        /* 根據需求調整 LOGO 大小 */
-        height: auto;
-        transition: transform 0.3s ease-in-out;
-    }
+.bg-primary {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
 }
