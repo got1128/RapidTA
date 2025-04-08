@@ -12,56 +12,58 @@
     <meta name="apple-mobile-web-app-title" content="RapidTA" />
     <link rel="manifest" href="my-favicon/site.webmanifest" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="css/styles_models.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <!-- 頁首：LOGO + 挑選機型連結 -->
-    <header>
-        <a href="index.html" class="index-link">
-            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO" class="logo">
+<body class="bg-orange-300 bg-cover bg-center text-center font-sans"
+    style="background-image: url('img_models/backgrund3.png');">
+    <!-- Header -->
+    <header class="flex flex-col lg:flex-row items-center justify-between bg-white px-6 py-4">
+        <a href="index.html">
+            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                class="h-16 w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
         </a>
 
-        <div class="select-botton">
-            <a href="select-soft.html" class="select-link">
+        <div class="flex gap-4 fixed bottom-5 right-5 lg:static lg:flex-row">
+            <a href="select-soft.html"
+                class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
                 <box-icon name='bookmarks' type='solid' animation='tada' color='#47f8bf'></box-icon>
                 搭配應用軟體
             </a>
-            <a href="select-model.html" class="select-link">
+            <a href="select-model.html"
+                class="flex items-center gap-2 px-4 py-2 bg-yellow-400 text-white rounded-full text-lg font-bold shadow-md hover:bg-yellow-300 transition">
                 <box-icon name='tag-alt' type='solid' animation='tada' flip='vertical' color='#FFF400'></box-icon>
                 幫助挑選機型
             </a>
         </div>
-
     </header>
 
-    <!-- 機型展示區 -->
-    <div class="model-container">
-        <div class="model-box">
+    <!-- Model Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-10 py-10 mt-20">
+        <div class="relative overflow-hidden group pt-8">
             <a href="models_RTA.html">
-                <img src="img_models/RTA.png" alt="RapidTA" class="machine">
+                <img src="img_models/RTA.png" alt="RapidTA"
+                    class="mx-auto transition-transform group-hover:scale-105 duration-300" />
             </a>
-
         </div>
-        <div class="model-box">
+        <div class="relative overflow-hidden group pt-8">
             <a href="models_RTAHD.html">
-                <img src="img_models/RTAHD.png" alt="RapidTAHD" class="machine">
+                <img src="img_models/RTAHD.png" alt="RapidTAHD"
+                    class="mx-auto transition-transform group-hover:scale-105 duration-300" />
             </a>
-
         </div>
-        <div class="model-box">
+        <div class="relative overflow-hidden group pt-8">
             <a href="models_RTAPLUS.html">
-                <img src="img_models/RTAPLUS.png" alt="RapidTAPLUS" class="machine">
+                <img src="img_models/RTAPLUS.png" alt="RapidTAPLUS"
+                    class="mx-auto transition-transform group-hover:scale-105 duration-300" />
             </a>
-
         </div>
-        <div class="model-box">
+        <div class="relative overflow-hidden group pt-8">
             <a href="models_RTAMAX.html">
-                <img src="img_models/RTAMAX.png" alt="RapidTAMAX" class="machine">
+                <img src="img_models/RTAMAX.png" alt="RapidTAMAX"
+                    class="mx-auto transition-transform group-hover:scale-105 duration-300" />
             </a>
-
         </div>
-    </div>
     </div>
 </body>
 
