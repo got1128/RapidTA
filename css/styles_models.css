@@ -27,21 +27,25 @@ header {
     /* LOGO 大小 */
 }
 
+.select-botton {
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    justify-content: center;
+}
+
 .select-link {
     text-decoration: none;
+    display: flex;
     font-size: 24px;
     font-weight: bold;
-    color: #ffffff;
-    background: #4974a1;
+    align-items: center;
+    gap: 5px;
     padding: 15px 20px;
     border-radius: 25px;
-    transition: 0.3s;
-    display: flex;
-    /* 啟用 Flexbox */
-    align-items: center;
-    /* 垂直置中 */
-    gap: 8px;
-    /* 圖示和文字之間的間距 */
+    background: #4974a1;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .select-link:hover {
@@ -131,32 +135,22 @@ header {
         height: auto;
     }
 
-    .select-link {
-        text-decoration: none;
+    .select-botton {
         position: fixed;
         bottom: 20px;
-        /* 距離底部 20px */
         right: 20px;
-        /* 距離右側 20px */
-        background-color: #4974a1;
-        /* 醒目的背景顏色 */
-        color: white;
-        /* 文字顏色 */
-        padding: 12px 15px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        /* 確保按鈕浮在最上層 */
-
-        display: flex;
-        /* 啟用 Flexbox */
+        flex-direction: row;
+        /* 水平排列 */
         align-items: center;
-        /* 垂直置中 */
-        gap: 8px;
-        /* 圖示和文字之間的間距 */
+        padding: 5px;
+        background: transparent;
+    }
+
+    .select-link {
+        padding: 6px 8px;
+        font-size: 14px;
+        border-radius: 8px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     }
 
     .model-container {

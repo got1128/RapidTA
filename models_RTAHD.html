@@ -1,25 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RapidTAHD</title>
+    <title>挑選屬於你的機型</title>
     <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
     <link rel="shortcut icon" href="my-favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="RapidTA" />
     <link rel="manifest" href="my-favicon/site.webmanifest" />
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles_models_Forms.css">
+
+    <!-- Google Fonts for playful style -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Luckiest+Guy&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <a href="index.html" class="index-link">
-            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO" class="logo">
-        </a>
-    </header>
+    <div class="page-border">
+        <header class="py-2 px-xxl-5 d-flex flex-column flex-md-row align-items-center justify-content-between"
+            style="background: #669bbb;">
+            <a href="index.html" class="mb-3 mb-md-0">
+                <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO" class="logo">
+            </a>
+            <div class="d-flex flex-wrap gap-3 button-section">
+                <a href="models_RTA.html" class="button-box text-decoration-none">
+                    <img src="img_select/1.svg" alt="RapidTA" class="icon">
+                    <span class="text">RapidTA</span>
+                </a>
+                <a href="models_RTAHD.html" class="button-box text-decoration-none">
+                    <img src="img_select/2.svg" alt="RapidTAHD" class="icon">
+                    <span class="text">HD</span>
+                </a>
+                <a href="models_RTA+.html" class="button-box text-decoration-none">
+                    <img src="img_select/3.svg" alt="RapidTA+" class="icon">
+                    <span class="text">PLUS</span>
+                </a>
+                <a href="models_RTAMAX.html" class="button-box text-decoration-none">
+                    <img src="img_select/4.svg" alt="RapidTAMAX" class="icon">
+                    <span class="text">MAX</span>
+                </a>
+            </div>
+        </header>
+
+        <main class="form-container d-flex justify-content-center align-items-center"
+            style="background-color: #669bbb;">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdSxeD2cPzIz3iVCP3SCM7mLOigr4thZITAKu6LvIQ83nyS6Q/viewform?embedded=true"
+                frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+        </main>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
 </body>
 
 </html>
