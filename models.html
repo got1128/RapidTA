@@ -18,13 +18,17 @@
 <body class="bg-orange-300 bg-cover bg-center text-center font-sans"
     style="background-image: url('img_models/backgrund3.png');">
     <!-- Header -->
-    <header class="flex flex-col lg:flex-row items-center justify-between bg-white px-6 py-4">
-        <a href="index.html">
+    <header class="bg-white px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between relative">
+        <!-- LOGO -->
+        <a href="index.html" class="self-center lg:self-auto">
             <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
-                class="h-16 w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+                class="h-20 w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
         </a>
 
-        <div class="flex gap-4 fixed bottom-5 right-5 lg:static lg:flex-row">
+
+        <!-- 手機版固定按鈕，桌機版回 header -->
+        <div
+            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0 lg:bg-transparent lg:relative lg:mt-0">
             <a href="select-soft.html"
                 class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
                 <box-icon name='bookmarks' type='solid' animation='tada' color='#47f8bf'></box-icon>
@@ -37,7 +41,6 @@
             </a>
         </div>
     </header>
-
     <!-- Model Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-10 py-10 mt-20">
         <div class="relative overflow-hidden group pt-8">
