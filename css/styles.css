@@ -22,9 +22,9 @@ html {
 .button-box {
     width: 20vh;
     height: 18vh;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: #b8ceda;
     border-radius: 110px 110px 16px 16px;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6), 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 5px #879eb3, 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border: 2px solid transparent;
     position: relative;
