@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidTA MAX</title>
+    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RapidTA MAX" />
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+TC&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        .handwritten-font {
+            font-family: 'Dancing Script', cursive, 'Noto Sans TC', 'Source Han Sans', sans-serif;
+        }
+
+        .hand-drawn-card {
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: #fff;
+        }
+
+        .hand-drawn-button {
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+        }
+
+        .hand-drawn-button:hover {
+            background-color: #eee;
+            transform: scale(1.05);
+        }
+
+        .draft-paper-background {
+            background-color: #ffffff;
+
+            background-image: linear-gradient(to bottom, #3636367e 1px, transparent 1px),
+                linear-gradient(to right, #8e8e8e 1px, transparent 1px);
+            /* 模擬草稿紙的格線效果 */
+            background-size: 30px 30px;
+            /* 格線間隔 */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 4px 4px 10px rgba(44, 44, 44, 0.1);
+        }
+
+        .collage-style {
+            background-color: #eaeaea;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .polaroid-image {
+            border: 10px solid white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            width: 100%;
+            height: auto;
+        }
+
+        .polaroid-caption {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        .watercolor-background {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900 font-sans">
+    <header
+        class="bg-white px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between fixed top-0 left-0 w-full z-50 shadow-md">
+        <a href="index.html" class="self-center lg:self-auto">
+            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+        </a>
+        <div
+            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0">
+            <a href="select-soft.html"
+                class="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-lg font-bold shadow-md hover:bg-gray-600 transition">
+                <box-icon name='bookmarks' type='solid' color='#ffffff'></box-icon>
+                搭配應用軟體
+            </a>
+            <a href="select-model.html"
+                class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-lg font-bold shadow-md hover:bg-gray-700 transition">
+                <box-icon name='tag-alt' type='solid' color='#ffffff'></box-icon>
+                幫助挑選機型
+            </a>
+        </div>
+    </header>
+
+    <div class="draft-paper-background min-h-screen w-full mt-10">
+        <div class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+            <section class="grid md:grid-cols-2 gap-6 items-center">
+                <div class="collage-style">
+                    <img src="img_models/RTAMAX.png" alt="RapidTA MAX" class="polaroid-image">
+                    <p class="polaroid-caption">RapidTA MAX 強悍登場</p>
+                </div>
+                <div class="space-y-4">
+                    <h1 class="text-4xl font-bold handwritten-font text-black">RapidTA MAX</h1>
+                    <p class="text-lg text-gray-800">我是極限級選手，重載加大型，專業對應複雜材料！</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">行程：150mm</span>
+                        <span
+                            class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">負載：100kg</span>
+                        <span
+                            class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">適用樣品：厚重包材、硬質食品、化妝品罐身</span>
+                    </div>
+                    <div class="space-x-4 pt-4">
+                        <a href="files/A4-型錄(英文)-final_ver2_sa0.1_compressed.pdf" download
+                            class="hand-drawn-button text-sm px-4 py-2 sm:px-6 sm:py-3">
+                            📄 索取型錄
+                        </a>
+                        <a href="mailto:info@RapidTA.com.tw"
+                            class="hand-drawn-button text-sm px-4 py-2 sm:px-6 sm:py-3">
+                            ✉️ 聯絡我們
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">適用場景</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>🏭 工廠端包裝封合強度驗證</li>
+                        <li>🧪 厚膜、多層結構複合材料測試</li>
+                        <li>📦 大容量樣品／非食品材質力學特性分析</li>
+                    </ul>
+                </div>
+
+                <div class="hand-drawn-card">
+                    <h2 class="text-2xl font-semibold mb-4">角色特性</h2>
+                    <div>
+                        <h3 class="font-semibold mb-1">功能重點</h3>
+                        <p class="text-gray-700">高精度／大行程／大負載測試，適合複雜應用。</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-1">角色個性</h3>
+                        <p class="text-gray-700">強悍、穩定、任勞任怨。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold mb-4">詳細規格</h2>
+                <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700 mt-2">
+                    <p><strong>力傳感器：</strong>最大 100kg</p>
+                    <p><strong>馬達行程：</strong>150mm</p>
+                    <p><strong>機器尺寸：</strong>約 W30 × D35 × H55 cm</p>
+                    <p><strong>重量：</strong>約 20kg</p>
+                    <p><strong>操作介面：</strong>USB 連接 + 分析軟體</p>
+                    <p><strong>適用場域：</strong>品保、研發、重工材料</p>
+                </div>
+            </section>
+
+            <section class="watercolor-background">
+                <h2 class="text-2xl font-semibold mb-4">RapidTA MAX 實驗日記 ✍️</h2>
+                <p class="text-gray-700">
+                    我們使用 RapidTA MAX 測試硬質包裝罐身的抗壓強度，逐步加壓至破壞點，記錄整體受力曲線。
+                </p>
+            </section>
+
+            <section class="text-center space-y-4">
+                <p class="text-lg font-medium">還想認識更多機型？👇</p>
+                <button onclick="window.location.href='select-model.html'"
+                    class="hand-drawn-button text-lg">挑選比較機型</button>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>

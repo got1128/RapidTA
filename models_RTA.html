@@ -18,8 +18,8 @@
     <style>
         /* 背景紋理 */
         body {
-            background: url('/img_models/RTA/BG.svg') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #FFF9E6;
+            /* 淡黃色背景 */
         }
 
         /* 手繪感字型 */
@@ -27,118 +27,196 @@
             font-family: 'Dancing Script', cursive, 'Noto Sans TC', 'Source Han Sans', sans-serif;
         }
 
-        /* 卡片邊框模擬手繪效果 */
         .hand-drawn-card {
-            border: 2px solid #b8b8b8;
+            border: 2px solid #e8d8b2;
             border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            /* 增加內邊距 */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+            /* 增加陰影效果 */
+            background: #fff8e1;
         }
 
-        /* 按鈕手繪風格 */
         .hand-drawn-button {
-            background-color: #6b7280;
-            border: 2px solid #4b5563;
+            background-color: #f1e8c6;
+            border: 2px solid #e0d6b5;
             border-radius: 8px;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 0.6rem 1.2rem;
+            /* 微調按鈕的內邊距 */
+            font-size: 1.1rem;
+            /* 提升文字大小 */
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+            /* 加入按鈕放大效果 */
         }
 
         .hand-drawn-button:hover {
-            background-color: #4b5563;
+            background-color: #e0d6b5;
+            transform: scale(1.05);
+            /* 按鈕懸浮時放大 */
+        }
+
+        .draft-paper-background {
+            background-color: #FFF9E6;
+            /* 淡黃色背景 */
+            background-image: linear-gradient(to bottom, #f0e0b6 1px, transparent 1px),
+                linear-gradient(to right, #f0e0b6 1px, transparent 1px);
+            /* 模擬草稿紙的格線效果 */
+            background-size: 30px 30px;
+            /* 格線間隔 */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 拼貼風格 - 插圖與圖層 */
+        .collage-style {
+            background-color: #fff0b3;
+            /* 淡黃拼貼背景 */
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* 拍立得風格圖片 */
+        .polaroid-image {
+            border: 10px solid white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            filter: brightness(0.9) contrast(1.2);
+            width: 100%;
+            height: auto;
+        }
+
+        .polaroid-caption {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #5f4d3e;
         }
 
         /* 輕微水彩效果 */
         .watercolor-background {
-            background: rgba(24, 137, 229, 0.3);
-            /* 淡藍色水彩 */
+            background: rgba(243, 195, 93, 0.6);
             border-radius: 12px;
             padding: 1.5rem;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
-    <div class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+<body class="bg-gray-50 text-gray-800 font-sans ">
 
-        <!-- 主視覺區 -->
-        <section class="grid md:grid-cols-2 gap-6 items-center">
-            <div>
-                <img src="img_models/RTA/RTA_L.png" alt="RapidTA Image" class="rounded-2xl shadow-md w-full">
-            </div>
-            <div class="space-y-4">
-                <h1 class="text-4xl font-bold handwritten-font">RapidTA</h1>
-                <p class="text-lg text-gray-600">我是行動派選手，小巧但有力！</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">行程：100mm</span>
-                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">負載：20kg</span>
-                    <span
-                        class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">適用樣品：小型食品、薄膜材質</span>
+    <header
+        class="bg-white px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between fixed top-0 left-0 w-full z-50 shadow-md">
+        <!-- LOGO -->
+        <a href="index.html" class="self-center lg:self-auto">
+            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+        </a>
+
+        <!-- 手機版固定按鈕，桌機版回 header -->
+        <div
+            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0 lg:bg-transparent lg:relative lg:mt-0">
+            <a href="select-soft.html"
+                class="flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
+                <box-icon name='bookmarks' type='solid' animation='tada' color='#47f8bf'></box-icon>
+                搭配應用軟體
+            </a>
+            <a href="select-model.html"
+                class="flex items-center gap-2 px-4 py-2 bg-yellow-400 text-white rounded-full text-lg font-bold shadow-md hover:bg-yellow-300 transition">
+                <box-icon name='tag-alt' type='solid' animation='tada' flip='vertical' color='#FFF400'></box-icon>
+                幫助挑選機型
+            </a>
+        </div>
+    </header>
+
+    <div class="draft-paper-background min-h-screen w-full mt-10">
+        <div class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+
+            <!-- 主視覺區 -->
+            <section class="grid md:grid-cols-2 gap-6 items-center ">
+                <div class="collage-style">
+                    <img src="img_models/RTA/RTA_L.png" alt="RapidTA Image" class="polaroid-image">
+                    <p class="polaroid-caption">RapidTA小巧而強大</p>
                 </div>
-                <div class="space-x-4 pt-4">
-                    <button class="hand-drawn-button">索取型錄</button>
-                    <button class="hand-drawn-button">查看更多</button>
+                <div class="space-y-4">
+                    <h1 class="text-4xl font-bold handwritten-font text-amber-600">RapidTA</h1>
+                    <p class="text-lg text-gray-600">我是行動派選手，小巧但有力！</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">行程：100mm</span>
+                        <span
+                            class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">負載：20kg</span>
+                        <span
+                            class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">適用樣品：小型食品、薄膜材質</span>
+                    </div>
+                    <div class="space-x-4 pt-4">
+                        <a href="files/A4-型錄(英文)-final_ver2_sa0.1_compressed.pdf" download
+                            class="hand-drawn-button text-sm px-4 py-2 sm:px-6 sm:py-3">
+                            📄 索取型錄
+                        </a>
+                        <a href="mailto:info@RapidTA.com.tw"
+                            class="hand-drawn-button text-sm px-4 py-2 sm:px-6 sm:py-3">
+                            ✉️ 聯絡我們
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 應用場景與角色特性區 -->
-        <section class="grid md:grid-cols-2 gap-12">
-            <!-- 適用場景 -->
-            <div>
-                <h2 class="text-2xl font-semibold mb-4 ">適用場景</h2>
-                <ul class="list-disc list-inside space-y-2 text-gray-600">
-                    <li>🏭 生產現場 QC 測試：潤餅皮、果醬、包裝袋</li>
-                    <li>🧪 研發單位／學校實驗室使用，行動靈活</li>
-                    <li>🎯 模擬消費者使用力道與包裝撕裂行為</li>
-                </ul>
-            </div>
-
-            <!-- 角色特性 -->
-            <div class="hand-drawn-card">
-                <h2 class="text-2xl font-semibold mb-4">角色特性</h2>
+            <!-- 其他區域保持不變 -->
+            <!-- 應用場景與角色特性區 -->
+            <section class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="font-semibold mb-1">功能重點</h3>
-                    <p class="text-gray-600">壓縮／穿刺／剝離測試，操作簡單快速。</p>
+                    <h2 class="text-2xl font-semibold mb-4">適用場景</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                        <li>🏭 生產現場 QC 測試：潤餅皮、果醬、包裝袋</li>
+                        <li>🧪 研發單位／學校實驗室使用，行動靈活</li>
+                        <li>🎯 模擬消費者使用力道與包裝撕裂行為</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="font-semibold mb-1">角色個性</h3>
-                    <p class="text-gray-600">像隨身小幫手，精實、機靈、任務導向。</p>
+
+                <div class="hand-drawn-card">
+                    <h2 class="text-2xl font-semibold mb-4">角色特性</h2>
+                    <div>
+                        <h3 class="font-semibold mb-1">功能重點</h3>
+                        <p class="text-gray-600">壓縮／穿刺／剝離測試，操作簡單快速。</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-1">角色個性</h3>
+                        <p class="text-gray-600">像隨身小幫手，精實、機靈、任務導向。</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 詳細規格 -->
-        <section>
-            <h2 class="text-2xl font-semibold mb-4t">詳細規格</h2>
-            <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700">
-                <p><strong>力傳感器：</strong>最大 20kg</p>
-                <p><strong>馬達行程：</strong>100mm</p>
-                <p><strong>機器尺寸：</strong>約 W20 × D20 × H30 cm</p>
-                <p><strong>重量：</strong>約 5kg</p>
-                <p><strong>操作介面：</strong>USB 連接 + 分析軟體</p>
-                <p><strong>適用場域：</strong>品保、研發、教學</p>
-            </div>
-        </section>
+            <!-- 詳細規格 -->
+            <section>
+                <h2 class="text-2xl font-semibold mb-4">詳細規格</h2>
+                <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700 mt-2">
+                    <p><strong>力傳感器：</strong>最大 20kg</p>
+                    <p><strong>馬達行程：</strong>100mm</p>
+                    <p><strong>機器尺寸：</strong>約 W20 × D20 × H30 cm</p>
+                    <p><strong>重量：</strong>約 5kg</p>
+                    <p><strong>操作介面：</strong>USB 連接 + 分析軟體</p>
+                    <p><strong>適用場域：</strong>品保、研發、教學</p>
+                </div>
+            </section>
 
-        <!-- 實驗日記區 -->
-        <section class="watercolor-background">
-            <h2 class="text-2xl font-semibold mb-4">RapidTA 實驗日記 ✍️</h2>
-            <p class="text-gray-600">
-                清明節時我們使用 RapidTA 測試潤餅皮的延展性。10 秒內完成測定，結果穩定，連冷藏室內操作都沒問題！
-            </p>
-        </section>
+            <!-- 實驗日記區 -->
+            <section class="watercolor-background">
+                <h2 class="text-2xl font-semibold mb-4">RapidTA 實驗日記 ✍️</h2>
+                <p class="text-gray-600">
+                    清明節時我們使用 RapidTA 測試潤餅皮的延展性。10 秒內完成測定，結果穩定，連冷藏室內操作都沒問題！
+                </p>
+            </section>
 
-        <!-- CTA 區 -->
-        <section class="text-center space-y-4">
-            <p class="text-lg font-medium">留下需求，我們幫你選機 👇</p>
-            <button class="hand-drawn-button text-lg">立即聯絡我們</button>
-        </section>
+            <!-- CTA 區 -->
+            <section class="text-center space-y-4">
+                <p class="text-lg font-medium">觀看更多，了解更多 👇</p>
+                <button onclick="window.location.href='select-model.html'"
+                    class="hand-drawn-button text-lg">關於我們</button>
+            </section>
 
-    </div>
+        </div>
 </body>
 
 </html>
