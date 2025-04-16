@@ -185,13 +185,59 @@
                 </p>
             </section>
 
-            <section class="text-center space-y-4">
-                <p class="text-lg font-medium">還想認識更多機型？👇</p>
-                <button onclick="window.location.href='select-model.html'"
-                    class="hand-drawn-button text-lg">挑選比較機型</button>
-            </section>
+
+            <!-- ✅ 在這裡加入箭頭切換區 -->
+            <div class="flex justify-between items-center mt-10 select-none px-6 sm:px-10">
+                <div onclick="goToPrevModel()" class="cursor-pointer hover:scale-110 transition text-4xl text-gray-400">
+                    ←</div>
+                <section class="text-center space-y-4">
+                    <p class="text-lg font-medium">認識更多機型👇</p>
+                    <button onclick="window.location.href='models.html'" class="hand-drawn-button text-lg">總攬</button>
+                </section>
+                <div onclick="goToNextModel()" class="cursor-pointer hover:scale-110 transition text-4xl text-gray-400">
+                    →</div>
+            </div>
 
         </div>
+        <script>
+            // 機型順序
+            const modelPages = [
+                "models_RTA.html",
+                "models_RTAHD.html",
+                "models_RTAPLUS.html",
+                "models_RTAMAX.html"
+            ];
+
+            const currentPath = window.location.pathname;
+            const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+            const currentIndex = modelPages.indexOf(currentFile);
+
+            function goToPrevModel() {
+                const prevIndex = (currentIndex - 1 + modelPages.length) % modelPages.length;
+                window.location.href = modelPages[prevIndex];
+            }
+
+            function goToNextModel() {
+                const nextIndex = (currentIndex + 1) % modelPages.length;
+                window.location.href = modelPages[nextIndex];
+            }
+
+            // 手機滑動切換
+            let touchStartX = 0;
+            document.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            document.addEventListener('touchend', function (e) {
+                const touchEndX = e.changedTouches[0].screenX;
+                const deltaX = touchEndX - touchStartX;
+
+                if (deltaX > 50) {
+                    goToPrevModel(); // 右滑
+                } else if (deltaX < -50) {
+                    goToNextModel(); // 左滑
+                }
+            });
+        </script>
     </div>
 </body>
 
