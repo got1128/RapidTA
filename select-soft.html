@@ -1,14 +1,91 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hant">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>軟體介紹 - RTA食品質構儀</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-white text-gray-800">
+    <!-- 主標區 -->
+    <section class="text-center py-12 px-4">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">選擇最適合你的實驗助手</h1>
+        <p class="text-lg md:text-xl text-gray-600">無論是精密實驗還是現場快測，RTA 都準備好了兩套軟體供你選擇！</p>
+    </section>
 
+    <!-- 軟體對比區 -->
+    <section class="py-10 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- BC 軟體 -->
+            <div class="bg-blue-50 p-6 rounded-2xl shadow">
+                <h2 class="text-2xl font-semibold mb-4">WP 軟體（實驗室專用）</h2>
+                <ul class="space-y-2">
+                    <li>🖥️ 適用設備：Windows 電腦</li>
+                    <li>🔬 適用場景：研發實驗室、高校研究</li>
+                    <li>⚙️ 操作模式：詳細參數設定，靈活控制</li>
+                    <li>📊 使用難度：中～高（需操作經驗）</li>
+                    <li>👩‍🔬 適用族群：研究人員、開發工程師</li>
+                </ul>
+            </div>
+
+            <!-- WP 軟體 -->
+            <div class="bg-green-50 p-6 rounded-2xl shadow">
+                <h2 class="text-2xl font-semibold mb-4">BC 軟體（現場快速版）</h2>
+                <ul class="space-y-2">
+                    <li>🖲️ 適用設備：IoT 觸控電腦</li>
+                    <li>🏭 適用場景：生產現場、品管快測</li>
+                    <li>🔘 操作模式：預選模式，一鍵啟動</li>
+                    <li>🧑‍🏭 使用難度：低（訓練成本低）</li>
+                    <li>👷‍♂️ 適用族群：生產人員、QA 操作者</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用情境圖區（預留位置） -->
+    <section class="py-12 px-6 max-w-5xl mx-auto">
+        <h2 class="text-2xl font-semibold text-center mb-6">📸 使用情境預覽</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-100 h-64 rounded-xl flex items-center justify-center text-gray-400 text-xl">
+                <img src="img_models/(RTA)(NB).png" alt="插圖：WP" />
+            </div>
+            <div class="bg-gray-100 h-64 rounded-xl flex items-center justify-center text-gray-400 text-xl">
+                <img src="img_models/(RTA+)(IOT).png" alt="插圖：BC" />
+            </div>
+        </div>
+    </section>
+
+    <!-- 詳細特色區 -->
+    <section class="py-12 px-6 max-w-5xl mx-auto">
+        <h2 class="text-2xl font-semibold text-center mb-6">🔍 軟體特色一覽</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white border border-blue-200 p-5 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">BC 軟體</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>多參數控制（速度、壓深、保持時間）</li>
+                    <li>實驗資料匯出（Excel、CSV）</li>
+                    <li>即時圖表顯示與重疊比對</li>
+                </ul>
+            </div>
+            <div class="bg-white border border-green-200 p-5 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">WP 軟體</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>預設多種模式（硬度、酥脆、黏附性等）</li>
+                    <li>操作簡單、點選即可開始</li>
+                    <li>結果自動顯示，支援熱感印表機列印</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 區 -->
+    <section class="bg-blue-100 py-10 px-6 text-center">
+        <h2 class="text-2xl font-bold mb-3">📦 你需要哪一種操作風格？</h2>
+        <p class="text-lg mb-6">立即聯絡我們，獲得軟體試用版與操作說明！</p>
+        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg transition">聯絡我們</a>
+    </section>
 </body>
 
 </html>
