@@ -4,22 +4,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
-    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="RapidTA" />
-    <link rel="manifest" href="my-favicon/site.webmanifest" />
-    <meta name="description" content="RTA 食品質構儀軟體介紹：BC 軟體適用於實驗室精密控制，WP 軟體適用於生產現場快速測試。選擇最適合你的操作方式。">
-    <meta name="keywords" content="RTA, 食品質構儀, 軟體介紹, BC 軟體, WP 軟體, 實驗室, 生產現場, 質地分析, 質構儀">
+    <title>軟體介紹 - RTA食品質構儀</title>
+
+    <!-- SEO -->
+    <meta name="description" content="RTA 食品質構儀軟體介紹：BC 軟體適用於實驗室精密控制，WC 軟體適用於生產現場快速測試。選擇最適合你的操作方式。">
+    <meta name="keywords" content="RTA, 食品質構儀, 軟體介紹, BC 軟體, WC 軟體, 實驗室, 生產現場, 質地分析, 質構儀">
     <meta name="author" content="RTA食品質構儀">
-    <meta property="og:title" content="RTA 軟體介紹 - BC / WP 操作方式解析" />
-    <meta property="og:description" content="兩款軟體對應不同場景：BC for 實驗室、WP for 現場操作，快速比較與選擇。" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RTA 軟體介紹 - BC / WC 操作方式解析" />
+    <meta property="og:description" content="兩款軟體對應不同場景：BC for 實驗室、WC for 現場操作，快速比較與選擇。" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/images/share-preview.jpg" />
     <meta property="og:url" content="https://yourdomain.com/software" />
-    <title>軟體介紹 - RTA食品質構儀</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Style -->
     <style>
         .feature-float {
             position: absolute;
@@ -32,30 +46,61 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-800">
-    <!-- 主標區 -->
-    <section class="text-center py-12 px-4">
-        <h1 class="text-3xl md:text-5xl font-bold mb-4">選擇最適合你的實驗助手</h1>
+<body class="bg-white text-gray-800" style="background-color: #ccdfe9;
+background-image:linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+background-size: 30px 30px;">
+    <header
+        class="bg-white px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between fixed top-0 left-0 w-full z-50 shadow-md">
+        <!-- LOGO -->
+        <a href="index.html" class="self-center lg:self-auto">
+            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+        </a>
+
+        <!-- 手機版固定按鈕，桌機版回 header -->
+        <div
+            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0 lg:bg-transparent lg:relative lg:mt-0">
+            <a href="models.html"
+                class="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
+                <box-icon name='pyramid' type='solid' rotate='180' animation='tada' color='#bbd3e1'></box-icon>
+                更多機型對比
+            </a>
+            <a href="select-model.html"
+                class="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
+                <box-icon name='tag-alt' type='solid' animation='tada' flip='vertical' color='#bbd3e1'></box-icon>
+                幫助挑選機型
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center py-8 px-4">
+        <h1 class="text-3xl md:text-5xl font-bold mt-20 mb-4">選擇最適合你的實驗助手</h1>
         <p class="text-lg md:text-xl text-gray-600">無論是精密實驗還是現場快測，RTA 都準備好了兩套軟體供你選擇！</p>
     </section>
 
     <!-- 使用情境互動圖區 -->
-    <section class="relative py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-2xl font-semibold text-center mb-6">📸 使用情境預覽</h2>
-        <div class="relative w-full h-[400px] bg-gray-100 rounded-2xl overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-xl">插圖：BC / WP 軟體操作</div>
-            <div class="feature-float bg-white border border-blue-200 p-4 rounded-xl shadow feature-hover"
-                style="top: 10%; left: 5%; width: 220px;">
-                <h3 class="font-bold text-blue-800 mb-2">BC 軟體</h3>
+    <section class="relative px-6 max-w-6xl mx-auto">
+        <div class="relative w-full h-[400px] bg-gray-100 rounded-2xl overflow-hidden group">
+            <img src="img_models/software.png" alt="software" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="img_models/software_logo.png" alt="RTA logo"
+                class="absolute top-1/2 left-1/2 w-full  sm: transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <!-- WC 軟體卡片 -->
+            <div class="feature-float bg-white border border-red-200 p-4 rounded-xl shadow feature-hover"
+                style="top: 10%; left: 5%; width: 150px;">
+                <h3 class="font-bold text-red-800 ">WC 軟體</h3>
                 <ul class="text-sm list-disc list-inside">
                     <li>多參數控制</li>
                     <li>圖表即時顯示</li>
                     <li>資料匯出</li>
                 </ul>
             </div>
-            <div class="feature-float bg-white border border-green-200 p-4 rounded-xl shadow feature-hover"
-                style="bottom: 10%; right: 5%; width: 220px;">
-                <h3 class="font-bold text-green-800 mb-2">WP 軟體</h3>
+
+            <!-- BC 軟體卡片 -->
+            <div class="feature-float bg-white border border-blue-200 p-4 rounded-xl shadow feature-hover"
+                style="bottom: 10%; right: 5%; width: 150px;">
+                <h3 class="font-bold text-blue-800 ">BC 軟體</h3>
                 <ul class="text-sm list-disc list-inside">
                     <li>預設測試模式</li>
                     <li>結果即時顯示</li>
@@ -65,13 +110,71 @@
         </div>
     </section>
 
+    <!-- 展示影片區 -->
+    <section class="py-12 px-6 max-w-6xl mx-auto space-y-12">
+        <div>
+            <h2 class="text-2xl font-semibold text-center mb-8">🎥 軟體實際操作影片</h2>
+
+            <!-- WC 影片 -->
+            <div>
+                <h3 class="text-xl font-bold text-red-400">WC 軟體操作</h3>
+                <div
+                    class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory md:overflow-visible">
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/wc1.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">多參數設定示範</p>
+                    </div>
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/wc2.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">實驗數據匯出</p>
+                    </div>
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/wc3.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">圖表即時顯示</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BC 影片 -->
+            <div>
+                <h3 class="text-xl font-bold mt-4 text-blue-400">BC 軟體操作</h3>
+                <div
+                    class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory md:overflow-visible">
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/bc1.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">一鍵啟動範例</p>
+                    </div>
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/bc2.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">結果顯示流程</p>
+                    </div>
+                    <div class="min-w-[250px] snap-start bg-white rounded-xl shadow p-2">
+                        <video class="rounded-lg w-full" controls>
+                            <source src="videos/bc3.mp4" type="video/mp4" />
+                        </video>
+                        <p class="mt-2 text-center text-sm text-gray-600">連接印表機操作</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 軟體對比區 -->
     <section class="py-10 px-6 max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- BC 軟體 -->
-            <div class="bg-blue-50 p-6 rounded-2xl shadow">
-                <h2 class="text-2xl font-semibold mb-4">BC 軟體（實驗室專用）</h2>
-                <ul class="space-y-2">
+            <div class="bg-red-100 p-6 rounded-2xl shadow">
+                <h2 class="text-2xl font-semibold mb-4">WC 軟體（實驗室專用）</h2>
+                <ul class="space-y-2 text-gray-700">
                     <li>🖥️ 適用設備：Windows 電腦</li>
                     <li>🔬 適用場景：研發實驗室、高校研究</li>
                     <li>⚙️ 操作模式：詳細參數設定，靈活控制</li>
@@ -79,11 +182,9 @@
                     <li>👩‍🔬 適用族群：研究人員、開發工程師</li>
                 </ul>
             </div>
-
-            <!-- WP 軟體 -->
-            <div class="bg-green-50 p-6 rounded-2xl shadow">
-                <h2 class="text-2xl font-semibold mb-4">WP 軟體（現場快速版）</h2>
-                <ul class="space-y-2">
+            <div class="bg-blue-100 p-6 rounded-2xl shadow">
+                <h2 class="text-2xl font-semibold mb-4">BC 軟體（現場快速版）</h2>
+                <ul class="space-y-2 text-gray-700">
                     <li>🖲️ 適用設備：IoT 觸控電腦</li>
                     <li>🏭 適用場景：生產現場、品管快測</li>
                     <li>🔘 操作模式：預選模式，一鍵啟動</li>
@@ -98,8 +199,13 @@
     <section class="bg-blue-100 py-10 px-6 text-center">
         <h2 class="text-2xl font-bold mb-3">📦 你需要哪一種操作風格？</h2>
         <p class="text-lg mb-6">立即聯絡我們，獲得軟體試用版與操作說明！</p>
-        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg transition">聯絡我們</a>
+        <a href="#"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg transition">聯絡我們</a>
     </section>
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
