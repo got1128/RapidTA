@@ -1,21 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>應用配件</title>
-    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
-    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="RapidTA" />
-    <link rel="manifest" href="my-favicon/site.webmanifest" />
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <meta name="description" content="RTA 食品質構儀提供專業、靈活、好上手的食品檢測工具，適用於研發甜點和食品品質把關。">
+    <title>RTA 多方應用 - 食品質構儀解決方案</title>
+
+    <!-- Favicon 設定 -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="RapidTA">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Tailwind CDN (生產環境建議使用編譯版本) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+
+        /* 增加自定義色彩以確保足夠對比度 */
+        :root {
+            --primary-text: #1a202c;
+            --accent-bg: #fef3c7;
+            --header-bg: #fbcfe8;
+            --card-hover-transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--primary-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            background-color: #f9fafb;
+        }
+
+        .card {
+            transition: var(--card-hover-transition);
+        }
+    </style>
 </head>
 
 <body>
+    <header class="bg-gradient-to-r from-pink-50 to-pink-100 py-4 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2">
+                <span class="text-2xl font-bold">RTA</span>
+                <span class="hidden sm:inline text-lg">食品質構儀</span>
+            </a>
+            <nav aria-label="主導航">
+                <ul class="flex gap-4">
+                    <li><a href="#" class="hover:text-pink-600 font-medium">產品</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-medium">應用</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-medium">支援</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-medium">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main>
+        <section class="px-4 md:px-6 py-12 max-w-6xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
+                🧪 多方應用 Applications
+                <span
+                    class="absolute -top-4 -right-6 rotate-3 bg-yellow-200 px-2 py-1 text-sm font-semibold rounded shadow animate-bounce">New!</span>
+            </h1>
+            <p class="text-lg mb-10 leading-relaxed bg-white/80 p-4 rounded-lg shadow backdrop-blur-sm">
+                不論你是研發新品的甜點職人，還是把關品質的食品工程師，RTA 食品質構儀都能提供你專業、靈活、好上手的檢測工具。這裡，我們把應用場景、測試方法、對應探頭通通整理好，幫你快速掌握最合適的解決方案。
+            </p>
+
+            <div class="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
+                <section class="col-span-full" id="test-methods">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+                        🎯 想測什麼？對應的測試方式 & 數據結果
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table
+                            class="table-auto w-full text-left border border-gray-300 bg-white/90 backdrop-blur rounded-lg shadow">
+                            <caption class="sr-only">測試方式與適用情境對照表</caption>
+                            <thead class="bg-pink-100">
+                                <tr>
+                                    <th class="px-4 py-2" scope="col">測試方式</th>
+                                    <th class="px-4 py-2" scope="col">適用情境</th>
+                                    <th class="px-4 py-2" scope="col">可取得數據</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-t hover:bg-gray-50">
+                                    <td class="px-4 py-2">單次測試</td>
+                                    <td class="px-4 py-2">適用於大多數樣品</td>
+                                    <td class="px-4 py-2">硬度、彈性、黏性、耐穿刺性、抗拉強度</td>
+                                </tr>
+                                <tr class="border-t hover:bg-gray-50">
+                                    <td class="px-4 py-2">重覆測試</td>
+                                    <td class="px-4 py-2">用於研究食品在多次使用後的感官變化，如口香糖、起司等。</td>
+                                    <td class="px-4 py-2">硬度、彈性、黏性</td>
+                                </tr>
+                                <tr class="border-t hover:bg-gray-50">
+                                    <td class="px-4 py-2">鬆弛測試</td>
+                                    <td class="px-4 py-2">主要用於檢測食品的彈性相關，如凝膠、果凍、布丁</td>
+                                    <td class="px-4 py-2">彈性模數、鬆弛時間、鬆弛程度</td>
+                                </tr>
+                                <tr class="border-t hover:bg-gray-50">
+                                    <td class="px-4 py-2">全質構測試</td>
+                                    <td class="px-4 py-2">特別是需要全面評估口感的食品，如肉類、麵包、餅乾、水果</td>
+                                    <td class="px-4 py-2">硬度、彈性、內聚性、咀嚼性、膠著性</td>
+                                </tr>
+                                <tr class="border-t hover:bg-gray-50">
+                                    <td class="px-4 py-2">黏性測試 / 持壓測試</td>
+                                    <td class="px-4 py-2">黏性膠帶、貼布、藥妝產品、黏性食品（如蜂蜜、糖漿）</td>
+                                    <td class="px-4 py-2">黏性強度、黏性持續時間、樣品的膨發特性</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-gray-500 mt-2">💡 每一筆結果都能自動產出報表，支援圖表、數值、導出格式自訂！</p>
+                    </div>
+                </section>
+
+                <section class="col-span-full" id="probe-types">
+                    <h2 class="text-2xl font-semibold mb-4 mt-10 flex items-center gap-2">
+                        🧰 對應測試的探頭種類介紹
+                    </h2>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div
+                            class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
+                            <h3 class="font-bold text-lg">圓柱壓頭</h3>
+                            <p>適用樣品：果凍、豆花、起司片</p>
+                            <p>搭配測試：壓縮測試</p>
+                        </div>
+                        <div
+                            class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
+                            <h3 class="font-bold text-lg">針狀穿刺頭</h3>
+                            <p>適用樣品：水果、藥錠、甜點</p>
+                            <p>搭配測試：穿刺測試</p>
+                        </div>
+                        <div
+                            class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
+                            <h3 class="font-bold text-lg">T型剪切刀</h3>
+                            <p>適用樣品：肉乾、結塊食材、能量條</p>
+                            <p>搭配測試：剪切測試</p>
+                        </div>
+                        <div
+                            class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
+                            <h3 class="font-bold text-lg">三點彎曲支架</h3>
+                            <p>適用樣品：餅乾、酥餅</p>
+                            <p>搭配測試：三點彎曲</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">✨ 樣品體積小或容易變形時，選擇更細緻的探頭尺寸會更穩定！</p>
+                </section>
+
+                <section class="col-span-full" id="case-studies">
+                    <h2 class="text-2xl font-semibold mb-4 mt-10 flex items-center gap-2">
+                        📚 真實應用案例分享
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div
+                            class="bg-white rounded-xl shadow p-4 transform hover:rotate-[-2deg] transition duration-300 card">
+                            <h3 class="text-xl font-semibold">🍮 案例 1｜讓豆花有「入口即化」的口感</h3>
+                            <p>使用 P/36 圓柱壓頭 + 壓縮測試，測得「硬度」與「彈性」指標後，建議微調凝膠比例，讓每一口都 Q 彈不死硬。</p>
+                            <ul class="list-disc pl-6 text-sm text-gray-700 mt-2">
+                                <li>硬度：132g → 微調後 108g</li>
+                                <li>彈性改善達 17%</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl shadow p-4 transform hover:rotate-[2deg] transition duration-300 card">
+                            <h3 class="text-xl font-semibold">🍪 案例 2｜找出最酥的餅乾配方</h3>
+                            <p>使用三點彎曲支架進行破裂力比較，發現加入黃豆粉版本的破裂力最低，達到消費者期待的「輕咬即碎」理想感。</p>
+                            <ul class="list-disc pl-6 text-sm text-gray-700 mt-2">
+                                <li>破裂力：原配方 680g → 改良配方 520g</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="bg-yellow-100 p-6 mt-16 rounded-xl text-center animate-fade-in" id="cta">
+                <h3 class="text-xl font-semibold mb-2">👉 不知道從哪開始？</h3>
+                <p class="mb-4">來試試我們的選機小測驗，快速找出最適合的機型、探頭與測試方法！</p>
+                <a href="#"
+                    class="inline-block bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full font-semibold shadow-md transition focus:ring focus:ring-red-300 focus:outline-none"
+                    aria-label="前往選機小測驗">
+                    🔍 立即前往
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 py-8 mt-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <!-- 主要 footer 區塊 -->
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- 企業介紹區 -->
+                <div>
+                    <h2 class="font-bold text-lg mb-3">RapidTA 食品質構儀</h2>
+                    <p class="text-sm text-gray-600 mb-3">專業的食品質地檢測解決方案，為食品研發與品質控管提供精確數據支援。</p>
+                    <p class="text-sm">
+                        <a href="models.html" class="text-red-600 hover:underline">了解更多 →</a>
+                    </p>
+                </div>
+
+                <!-- 產品導航區 -->
+                <div>
+                    <h2 class="font-bold text-lg mb-3">產品系列</h2>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="models.html" class="hover:text-red-600">系列質構儀</a></li>
+                        <li><a href="select-soft.html" class="hover:text-red-600">分析軟體</a></li>
+                    </ul>
+                </div>
+
+                <!-- 應用與資源 -->
+                <div>
+                    <h2 class="font-bold text-lg mb-3">應用與資源</h2>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="accessories/accessories_test.html" class="hover:text-red-600">測試方式</a></li>
+                        <li><a href="accessories/accessories_probe.html" class="hover:text-red-600">探頭與配件</a></li>
+                        <li><a href="accessories/accessories_study.html" class="hover:text-red-600">案例研究</a></li>
+                    </ul>
+                </div>
+
+                <!-- 聯絡區 -->
+                <div>
+                    <h2 class="font-bold text-lg mb-3">聯絡我們</h2>
+                    <address class="text-sm text-gray-600 not-italic">
+                        <p>客服專線: (02) 1234-5678</p>
+                        <p>信箱: <a href="mailto:info@rta-instruments.com"
+                                class="hover:text-red-600">info@rta-instruments.com</a></p>
+                        <p>地址: 台北市南港區研發路88號</p>
+                    </address>
+                </div>
+            </div>
+
+            <!-- 底部資訊區 -->
+            <div class="pt-6 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-600 mb-4 md:mb-0">
+                    © 2025 RTA 食品質構儀。保留所有權利。
+                </div>
+
+                <!-- 次要導航 -->
+                <nav aria-label="法律與政策導航">
+                    <ul class="flex flex-wrap gap-4 text-sm">
+                        <li><a href="/privacy" class="hover:text-red-600">隱私政策</a></li>
+                        <li><a href="/terms" class="hover:text-red-600">使用條款</a></li>
+                        <li><a href="/sitemap" class="hover:text-red-600">網站地圖</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 結構化數據，用於增強搜索引擎收錄 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "RapidTA",
+        "description": "專業、靈活、好上手的食品檢測工具，適用於研發食品和食品品質把關",
+        "brand": {
+            "@type": "Brand",
+            "name": "RapidTA"
+        },
+        "category": "食品檢測設備"
+    }
+    </script>
 </body>
 
 </html>

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RapidTA MAX</title>
+    <title>RapidTAHD</title>
     <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
     <link rel="shortcut icon" href="my-favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="RapidTA MAX" />
+    <meta name="apple-mobile-web-app-title" content="RapidTA" />
     <link rel="manifest" href="my-favicon/site.webmanifest" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,7 +17,7 @@
         rel="stylesheet">
     <style>
         body {
-            background-color: #F5F5F5;
+            background-color: #eaf6fb;
         }
 
         .handwritten-font {
@@ -25,15 +25,16 @@
         }
 
         .hand-drawn-card {
-            border: 2px solid #ccc;
+            border: 2px solid #a9d6e5;
             border-radius: 12px;
             padding: 1.5rem;
-            background: #fff;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+            background: #e0f7ff;
         }
 
         .hand-drawn-button {
-            background-color: #fff;
-            border: 2px solid #333;
+            background-color: #d0ecf6;
+            border: 2px solid #a9d6e5;
             border-radius: 8px;
             padding: 0.6rem 1.2rem;
             font-size: 1.1rem;
@@ -41,25 +42,22 @@
         }
 
         .hand-drawn-button:hover {
-            background-color: #eee;
+            background-color: #a9d6e5;
             transform: scale(1.05);
         }
 
         .draft-paper-background {
-            background-color: #ffffff;
-
-            background-image: linear-gradient(to bottom, #cccccc7e 1px, transparent 1px),
-                linear-gradient(to right, #cccccc7e 1px, transparent 1px);
-            /* 模擬草稿紙的格線效果 */
+            background-color: #eaf6fb;
+            background-image: linear-gradient(to bottom, #d2eaf2 1px, transparent 1px),
+                linear-gradient(to right, #d2eaf2 1px, transparent 1px);
             background-size: 30px 30px;
-            /* 格線間隔 */
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 4px 4px 10px rgba(44, 44, 44, 0.1);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .collage-style {
-            background-color: #eaeaea;
+            background-color: #cfeffc;
             border-radius: 10px;
             padding: 1rem;
             box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
@@ -70,7 +68,7 @@
             border: 10px solid white;
             border-radius: 12px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+            filter: brightness(0.9) contrast(1.2);
             width: 100%;
             height: auto;
         }
@@ -79,39 +77,36 @@
             font-size: 1.2rem;
             text-align: center;
             margin-top: 10px;
-            color: #444;
+            color: #4a6b78;
         }
 
         .watercolor-background {
-            background: #fff;
+            background: rgba(150, 216, 230, 0.6);
             border-radius: 12px;
             padding: 1.5rem;
-        }
-
-        .text-gray-700 {
-            font-weight: 600;
-            /* 或 700 */
         }
     </style>
 </head>
 
-<body class="text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-800 font-sans ">
+
     <header
         class="bg-white px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between fixed top-0 left-0 w-full z-50 shadow-md">
-        <a href="index.html" class="self-center lg:self-auto">
-            <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+        <a href="/index.html" class="self-center lg:self-auto">
+            <img src="/img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
                 class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
         </a>
+
         <div
-            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0">
+            class="flex gap-4 fixed bottom-0 left-0 w-full justify-center py-3 z-50 lg:static lg:w-auto lg:justify-end lg:py-0 lg:bg-transparent lg:relative lg:mt-0">
             <a href="select-soft.html"
-                class="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-lg font-bold shadow-md hover:bg-gray-600 transition">
-                <box-icon name='bookmarks' type='solid' color='#ffffff'></box-icon>
+                class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
+                <box-icon name='bookmarks' type='solid' animation='tada' color='#47f8bf'></box-icon>
                 搭配應用軟體
             </a>
             <a href="select-model.html"
-                class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-lg font-bold shadow-md hover:bg-gray-700 transition">
-                <box-icon name='tag-alt' type='solid' color='#ffffff'></box-icon>
+                class="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-full text-lg font-bold shadow-md hover:bg-blue-300 transition">
+                <box-icon name='tag-alt' type='solid' animation='tada' flip='vertical' color='#FFF400'></box-icon>
                 幫助挑選機型
             </a>
         </div>
@@ -119,24 +114,25 @@
 
     <div class="draft-paper-background min-h-screen w-full mt-10">
         <div class="max-w-6xl mx-auto px-6 py-10 space-y-12">
-            <section class="grid md:grid-cols-2 gap-6 items-center">
+
+            <section class="grid md:grid-cols-2 gap-6 items-center ">
                 <div class="collage-style">
-                    <img src="img_models/RTAMAX.png" alt="RapidTA MAX" class="polaroid-image">
-                    <p class="polaroid-caption">RapidTA MAX 強悍登場</p>
+                    <img src="/img_models/RTAHD.png" alt="RapidTAHD Image" class="polaroid-image">
+                    <p class="polaroid-caption">RapidTAHD 高負載設計</p>
                 </div>
                 <div class="space-y-4">
-                    <h1 class="text-4xl font-bold handwritten-font text-black">RapidTA MAX</h1>
-                    <p class="text-lg text-gray-800">我是極限級選手，重載加大型，專業對應複雜材料！</p>
+                    <h1 class="text-4xl font-bold handwritten-font text-sky-700">RapidTAHD</h1>
+                    <p class="text-lg text-gray-600">我是高負載職人，穩重又可靠！</p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">行程：350mm</span>
+                            class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">行程：100mm</span>
                         <span
-                            class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">負載：50kg</span>
+                            class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">負載：100kg</span>
                         <span
-                            class="bg-gray-200 text-gray-800 font-semibold text-sm font-medium px-3 py-1 rounded-full">適用樣品：工業級食品、大型動物飼料</span>
+                            class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">適用樣品：肉類海鮮、堅果乾貨</span>
                     </div>
                     <div class="space-x-4 pt-4">
-                        <a href="files/A4-型錄(英文)-final_ver2_sa0.1_compressed.pdf" download
+                        <a href="/files/A4-型錄(英文)-final_ver2_sa0.1_compressed.pdf" download
                             class="hand-drawn-button text-sm px-4 py-2 sm:px-6 sm:py-3">
                             📄 索取型錄
                         </a>
@@ -151,10 +147,10 @@
             <section class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h2 class="text-2xl font-semibold mb-4">適用場景</h2>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>🏭 工廠端包裝封合強度驗證</li>
-                        <li>🧪 厚膜、多層結構複合材料測試</li>
-                        <li>📦 大容量樣品／非食品材質力學特性分析</li>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                        <li>🏭 生產現場 QC 測試：瓶裝產品、包裝拉力</li>
+                        <li>🧪 研發單位／品保部門高負載測試</li>
+                        <li>⚙️ 材料強度分析，模擬消費者開瓶力道</li>
                     </ul>
                 </div>
 
@@ -162,11 +158,11 @@
                     <h2 class="text-2xl font-semibold mb-4">角色特性</h2>
                     <div>
                         <h3 class="font-semibold mb-1">功能重點</h3>
-                        <p class="text-gray-700">高精度／大行程／大負載測試，適合複雜應用。</p>
+                        <p class="text-gray-600">高負載壓縮／拉力測試，專業級設定。</p>
                     </div>
                     <div>
                         <h3 class="font-semibold mb-1">角色個性</h3>
-                        <p class="text-gray-700">強悍、穩定、任勞任怨。</p>
+                        <p class="text-gray-600">像沉穩師傅，可靠、實力派。</p>
                     </div>
                 </div>
             </section>
@@ -174,19 +170,19 @@
             <section>
                 <h2 class="text-2xl font-semibold mb-4">詳細規格</h2>
                 <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700 mt-2">
-                    <p><strong>力傳感器：</strong>最大 50kg</p>
-                    <p><strong>馬達行程：</strong>350mm</p>
-                    <p><strong>機器尺寸：</strong>約 W300 × D400 × H620 cm</p>
-                    <p><strong>重量：</strong>約 14.1kg</p>
+                    <p><strong>力傳感器：</strong>最大 100kg</p>
+                    <p><strong>馬達行程：</strong>100mm</p>
+                    <p><strong>機器尺寸：</strong>約 W250 × D320 × H630 cm</p>
+                    <p><strong>重量：</strong>約 15.5kg</p>
                     <p><strong>操作介面：</strong>USB 連接 + 分析軟體</p>
-                    <p><strong>適用場域：</strong>品保、研發、大型材料</p>
+                    <p><strong>適用場域：</strong>品保、研發、材料測試</p>
                 </div>
             </section>
 
             <section class="watercolor-background">
-                <h2 class="text-2xl font-semibold mb-4">RapidTA MAX 實驗日記 ✍️</h2>
-                <p class="text-gray-700">
-                    我們使用 RapidTA MAX 測試硬質包裝罐身的抗壓強度，逐步加壓至破壞點，記錄整體受力曲線。
+                <h2 class="text-2xl font-semibold mb-4">RapidTAHD 實驗日記 ✍️</h2>
+                <p class="text-gray-600">
+                    我們使用 RapidTAHD 測試瓶裝產品蓋子的開啟力，設定高負載拉力模式，測試結果準確穩定，操作簡單！
                 </p>
             </section>
 
@@ -197,7 +193,8 @@
                     ←</div>
                 <section class="text-center space-y-4">
                     <p class="text-lg font-medium">認識更多機型👇</p>
-                    <button onclick="window.location.href='models.html'" class="hand-drawn-button text-lg">機器總攬</button>
+                    <button onclick="window.location.href='/models.html'"
+                        class="hand-drawn-button text-lg">機器總攬</button>
                 </section>
                 <div onclick="goToNextModel()" class="cursor-pointer hover:scale-110 transition text-4xl text-gray-400">
                     →</div>
