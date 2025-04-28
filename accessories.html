@@ -8,11 +8,12 @@
     <title>RTA 多方應用 - 食品質構儀解決方案</title>
 
     <!-- Favicon 設定 -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="RapidTA">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RapidTA" />
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
 
     <!-- Tailwind CDN (生產環境建議使用編譯版本) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,17 +57,18 @@
 </head>
 
 <body>
-    <header class="bg-gradient-to-r from-pink-50 to-pink-100 py-4 shadow-sm">
+
+
+    <header class="bg-gradient-to-r from-blue-50 to-blue-100 py-4 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2">
-                <span class="text-2xl font-bold">RTA</span>
-                <span class="hidden sm:inline text-lg">食品質構儀</span>
+            <a href="index.html" class="self-center lg:self-auto">
+                <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                    class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
             </a>
             <nav aria-label="主導航">
                 <ul class="flex gap-4">
                     <li><a href="#" class="hover:text-pink-600 font-medium">產品</a></li>
                     <li><a href="#" class="hover:text-pink-600 font-medium">應用</a></li>
-                    <li><a href="#" class="hover:text-pink-600 font-medium">支援</a></li>
                     <li><a href="#" class="hover:text-pink-600 font-medium">聯絡我們</a></li>
                 </ul>
             </nav>
@@ -93,7 +95,7 @@
                         <table
                             class="table-auto w-full text-left border border-gray-300 bg-white/90 backdrop-blur rounded-lg shadow">
                             <caption class="sr-only">測試方式與適用情境對照表</caption>
-                            <thead class="bg-pink-100">
+                            <thead class="bg-blue-100">
                                 <tr>
                                     <th class="px-4 py-2" scope="col">測試方式</th>
                                     <th class="px-4 py-2" scope="col">適用情境</th>
@@ -195,7 +197,7 @@
             <div class="bg-yellow-100 p-6 mt-16 rounded-xl text-center animate-fade-in" id="cta">
                 <h3 class="text-xl font-semibold mb-2">👉 不知道從哪開始？</h3>
                 <p class="mb-4">來試試我們的選機小測驗，快速找出最適合的機型、探頭與測試方法！</p>
-                <a href="#"
+                <a href="models/select-model.html"
                     class="inline-block bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full font-semibold shadow-md transition focus:ring focus:ring-red-300 focus:outline-none"
                     aria-label="前往選機小測驗">
                     🔍 立即前往
@@ -240,10 +242,10 @@
                 <div>
                     <h2 class="font-bold text-lg mb-3">聯絡我們</h2>
                     <address class="text-sm text-gray-600 not-italic">
-                        <p>客服專線: (02) 1234-5678</p>
-                        <p>信箱: <a href="mailto:info@rta-instruments.com"
-                                class="hover:text-red-600">info@rta-instruments.com</a></p>
-                        <p>地址: 台北市南港區研發路88號</p>
+                        <p>客服專線: (03)3819203</p>
+                        <p>信箱: <a href="mailto:info@rapidta.com.tw" class="hover:text-red-600">info@rapidta.com.tw</a>
+                        </p>
+                        <p>地址: 桃園市大園區青峰路二段213號8樓</p>
                     </address>
                 </div>
             </div>
@@ -251,15 +253,14 @@
             <!-- 底部資訊區 -->
             <div class="pt-6 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
                 <div class="text-sm text-gray-600 mb-4 md:mb-0">
-                    © 2025 RTA 食品質構儀。保留所有權利。
+                    © 2025 RapidTA食品質構儀。保留所有權利。
                 </div>
 
                 <!-- 次要導航 -->
                 <nav aria-label="法律與政策導航">
                     <ul class="flex flex-wrap gap-4 text-sm">
-                        <li><a href="/privacy" class="hover:text-red-600">隱私政策</a></li>
-                        <li><a href="/terms" class="hover:text-red-600">使用條款</a></li>
-                        <li><a href="/sitemap" class="hover:text-red-600">網站地圖</a></li>
+                        <li><a href="privacy.html" class="hover:text-red-600">網站政策</a></li>
+                        <li><a href="sitemap.html" class="hover:text-red-600">網站地圖</a></li>
                     </ul>
                 </nav>
             </div>
