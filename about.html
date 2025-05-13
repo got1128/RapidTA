@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTA 品牌報</title>
+    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RapidTA" />
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap');
+
+        :root {
+            --primary: #002b5c;
+            /* 深藍，主色調 */
+            --secondary: #004a8f;
+            /* 輔助藍，略暗一些 */
+            --accent: #4fbbe4;
+            /* 強調淺藍 */
+            --dark: #001f40;
+            /* 最深藍，適合主標、hover 狀態 */
+            --light: #dcefff;
+            /* 較深的淺藍背景 */
+            --navy: #00396d;
+            /* 次深藍，文字與邊框用 */
+            --sky: #007ab0;
+            /* 天空藍改深，視覺更專業 */
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f7ff;
+            color: var(--dark);
+        }
+
+        .content-wrapper {
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 43, 92, 0.08);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+
+        .brand-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: var(--accent);
+            left: 0;
+            bottom: -2px;
+            z-index: -1;
+            transform: skew(-15deg);
+        }
+
+        .fun-border {
+            border-style: solid;
+            border-width: 3px;
+            border-image: linear-gradient(45deg, var(--primary), var(--secondary)) 1;
+            transition: transform 0.3s ease;
+        }
+
+        .fun-border:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 43, 92, 0.1);
+        }
+
+        .fun-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .dotted-bg {
+            background-image: radial-gradient(var(--accent) 10%, transparent 11%),
+                radial-gradient(var(--accent) 10%, transparent 11%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-repeat: repeat;
+            opacity: 0.3;
+        }
+
+        .wavy-divider {
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%233B82F6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .bubble {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 3px 3px 0 var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .bubble:hover {
+            transform: translateY(-3px);
+            box-shadow: 5px 5px 0 var(--primary);
+        }
+
+        .bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 30px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #fff transparent;
+        }
+
+        .pattern-bg {
+            background-color: var(--secondary);
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .squiggle {
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Noto Serif TC', serif;
+        }
+
+
+        .squiggle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            background: url("data:image/svg+xml,%3Csvg width='70' height='10' viewBox='0 0 70 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5c5 0 5-5 10-5s5 5 10 5 5-5 10-5 5 5 10 5 5-5 10-5 5 5 10 5 5-5 10-5' stroke='%233B82F6' fill='none'/%3E%3C/svg%3E") repeat-x;
+            left: 0;
+            bottom: -10px;
+        }
+
+        .illustration-area {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338BDF8' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .blue-gradient {
+            background: linear-gradient(to right, #2e56ac, #7DD3FC);
+        }
+
+        .blue-dots {
+            background-image: radial-gradient(#BFDBFE 2px, transparent 2px);
+            background-size: 16px 16px;
+        }
+
+        .wave-pattern {
+            background-color: #DBEAFE;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%2393C5FD' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .headline {
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid #DBEAFE;
+        }
+
+        .tag {
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 43, 92, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            opacity: 0;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .card:hover::before {
+            transform: scale(20);
+            opacity: 0.03;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-6">
+    <div class="content-wrapper max-w-screen-xl mx-auto">
+        <!-- 頁首 -->
+        <header class="relative mb-16 pb-6 border-b-4 border-gray-800">
+            <!-- 頂部報紙風格分隔線 -->
+            <div class="bg-gray-800 h-1 w-full"></div>
+            <div class="border-b border-gray-500 border-dashed w-full mt-2 mb-6"></div>
+
+            <!-- 主標題區域 -->
+            <div class="pt-2 flex flex-col md:flex-row justify-between items-start md:items-end">
+                <!-- 左側品牌區 -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- LOGO與主標題區 -->
+                    <div class="flex items-center gap-4 mb-2">
+                        <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                            class="max-h-16 w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+                        <h1 class="text-5xl md:text-6xl font-black tracking-wide text-blue-900">品牌報</h1>
+                    </div>
+                    <!-- 副標題區 -->
+                    <p class="mt-1 text-base md:text-lg font-bold text-blue-900 italic border-t-2 border-blue-900 px-2">
+                        The most reliable partner in texture analysis
+                    </p>
+                </div>
+
+                <!-- 右側發刊資訊 -->
+                <div class="mt-4 md:mt-0 flex flex-col items-end bg-blue-50 p-2 border-l-2 border-blue-800">
+                    <span class="text-sm font-bold text-gray-800">發刊日：2025年5月13日</span>
+                    <div class="text-xs mt-1 bg-blue-800 text-white px-2 py-1">質感實驗室特別號</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主區塊 -->
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-6 px-4">
+            <!-- 焦點新聞 -->
+            <section class="md:col-span-12 relative fun-border rounded-lg p-5 bg-white mb-8 card">
+                <div class="badge">新品!</div>
+                <h2 class="text-3xl font-black  mb-4 text-blue-900 headline">【焦點新聞】RapidTA+ 隆重登場！</h2>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-3/5">
+                        <p class="text-base leading-relaxed">
+                            <span class="bg-blue-100 px-1 font-bold">RTA 最新推出的 RapidTA+</span>，專為研發與現場品管設計，<span
+                                class="text-blue-800">20kg 負載與 100mm
+                                行程</span>滿足多元測試需求。支援 USB 即時輸出，符合智慧生產需求！透過創新的質構分析軟體，可立即產出詳細的質構報告，讓品管人員更快速掌握產品品質變化。
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span
+                                class="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-blue-600 tag">#創新科技</span>
+                            <span
+                                class="inline-block bg-sky-100 rounded-full px-3 py-1 text-sm font-semibold text-sky-600 tag">#質構分析</span>
+                            <span
+                                class="inline-block bg-cyan-100 rounded-full px-3 py-1 text-sm font-semibold text-cyan-600 tag">#食品檢測</span>
+                        </div>
+                    </div>
+                    <div
+                        class="md:w-2/5 illustration-area rounded-lg p-6 flex items-center justify-center text-center min-h-32 border-4 border-dashed border-blue-300 hover:border-blue-500 transition-colors duration-300">
+                        <div class="text-lg font-bold py-6">
+                            <div class="mb-4 text-2xl text-blue-700">✨ RapidTA+ 新機型 ✨</div>
+                            <div class="text-lg">質構分析新紀元！</div>
+                            <div class="mt-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg">按壓、拉伸、穿刺，一機搞定</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 研發專欄 -->
+            <section class="md:col-span-4 pattern-bg text-white rounded-lg overflow-hidden shadow-lg card">
+                <h3 class="text-xl font-bold p-4 bg-blue-900">【研發專欄】應用介紹</h3>
+                <div class="p-4">
+                    <p class="text-sm leading-relaxed">
+                        RTA 工程團隊正開發高靈敏度探頭，將可更準確分析果凍、醬料等柔軟樣品的質構變化。預計 Q3 上市，敬請期待！
+                    </p>
+                    <div
+                        class="mt-6 p-3 bg-white bg-opacity-20 rounded-lg text-center hover:bg-opacity-30 transition-all duration-300">
+                        <div class="text-lg font-bold">精準度高達 99%</div>
+                        <div class="text-xs mt-2 px-2 py-1 bg-white bg-opacity-20 rounded-full inline-block">
+                            連豆腐的細微觸感都能測！</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 活動快訊 -->
+            <section class="md:col-span-4 relative bg-blue-50 rounded-lg overflow-hidden shadow-lg card">
+                <div class="absolute top-0 left-0 w-full h-full dotted-bg"></div>
+                <h3 class="text-xl font-bold p-4 bg-blue-500 text-white relative z-10">【活動快訊】我們要參展啦！</h3>
+                <div class="p-4 relative z-10">
+                    <p class="text-sm leading-relaxed">
+                        歡迎蒞臨 2025 台北國際儀器展，RTA將展出全系列 RapidTA 機種，並現場進行質構測試體驗活動。
+                    </p>
+                    <div class="mt-6 p-4 bg-white rounded-lg text-center shadow-inner">
+                        <div class="font-bold text-blue-600 text-lg mb-2">展覽資訊</div>
+                        <div class="flex flex-col md:flex-row justify-between mt-2 text-sm gap-2">
+                            <div class="p-2 bg-blue-50 rounded-lg">
+                                <span class="font-bold text-lg">⏰</span> 2025/10/15-10/18
+                            </div>
+                            <div class="p-2 bg-blue-50 rounded-lg">
+                                <span class="font-bold text-lg">📍</span> 台北世貿展覽中心 一館
+                            </div>
+                        </div>
+                        <div class="mt-3 p-2 bg-blue-100 text-blue-800 font-bold rounded-lg text-sm animate-pulse">
+                            攤位位置：即將公布
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 顧客故事 -->
+            <section
+                class="md:col-span-4 bg-gradient-to-br from-cyan-50 to-blue-100 rounded-lg overflow-hidden shadow-lg card">
+                <h3 class="text-xl font-bold p-4 bg-cyan-500 text-white">【顧客故事】豆花店的神隊友</h3>
+                <div class="p-4">
+                    <div class="bubble">
+                        <p class="text-sm italic">
+                            「有了 RapidTA，我們可以更安心控管豆花軟硬度，品質穩定，客訴明顯下降。天天都有好口感！」
+                        </p>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <div
+                            class="inline-block px-4 py-2 bg-sky-300 rounded-full transform -rotate-2 font-bold text-blue-800 hover:rotate-0 transition-transform duration-300">
+                            顧客滿意度提升 30%
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 小編專欄 -->
+            <section class="md:col-span-12 fun-border rounded-lg p-6 mt-8 wave-pattern card">
+                <h3 class="text-2xl font-black squiggle mb-8 text-blue-600 headline">【小編說】質構，也是一種品牌語言</h3>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-3/4">
+                        <p class="text-base leading-relaxed mb-4">
+                            很多客戶問我們：<span class="font-bold text-blue-700">真的需要這麼仔細測試嗎？</span>我們總是說：
+                        </p>
+                        <div
+                            class="my-6 p-4 bg-white rounded-lg border-l-4 border-blue-500 shadow-md hover:border-l-8 transition-all duration-300">
+                            <p class="text-xl italic font-bold text-blue-600">
+                                「質構，其實是你產品最早被感知的品牌特徵。」
+                            </p>
+                        </div>
+                        <p class="text-base leading-relaxed">
+                            它不是硬不硬的問題，而是<span class="text-blue-700 font-bold">可預期的品質體驗</span>。質構儀，就是這種穩定的後盾。
+                        </p>
+                        <p class="text-base leading-relaxed mt-4">
+                            您有沒有想過，為什麼有些產品讓顧客一試成主顧？除了味道，那細微的口感差異才是真正的關鍵。讓 RTA 與您一起，打造專屬於您品牌的質構語言！
+                        </p>
+                    </div>
+                    <div class="md:w-1/4 flex items-center justify-center">
+                        <div
+                            class="w-40 h-40 rounded-full blue-gradient flex items-center justify-center shadow-lg transform rotate-6 hover:rotate-0 transition-all duration-500">
+                            <div class="text-white text-center">
+                                <div class="text-2xl font-bold">質構體驗</div>
+                                <div class="text-sm mt-2">創造美好口感</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 聯絡資訊 -->
+        <section class="mt-16 p-8 rounded-lg bg-gradient-to-r from-blue-700 to-sky-500 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                    <h4 class="font-bold text-2xl mb-4">📱 聯絡我們</h4>
+                    <div class="p-4 bg-white bg-opacity-10 rounded-lg">
+                        <p class="text-base">
+                            電話：<span class="font-bold">02-2345-6789</span><br>
+                            Email：<span class="font-bold">service@rta-textures.com</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                    <h4 class="font-bold text-2xl mb-4">📧 訂閱電子報</h4>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <p class="text-base mb-3">掃描 QR code 訂閱每月更新</p>
+                        <div class="w-24 h-24 mx-auto bg-white rounded-lg"></div>
+                    </div>
+                </div>
+                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                    <h4 class="font-bold text-2xl mb-4">🌐 社群媒體</h4>
+                    <p class="text-base mb-4">
+                        與我們互動！
+                    </p>
+                    <div class="flex justify-center gap-6">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 font-bold shadow-lg social-icon">
+                            IG</div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 font-bold shadow-lg social-icon">
+                            FB</div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 font-bold shadow-lg social-icon">
+                            Li</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 頁尾 -->
+        <footer class="mt-12 text-center p-6 text-xs text-gray-500">
+            <div
+                class="inline-block transform -rotate-1 bg-blue-50 p-3 rounded-lg border border-blue-200 hover:rotate-1 transition-transform duration-300">
+                本報僅供創意展示使用，內容如有雷同純屬巧合。© RTA食品質構儀 2025
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 簡單的滾動動畫效果
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.card');
+
+            function checkScroll() {
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight * 0.9;
+
+                    if (cardTop < screenPosition) {
+                        card.style.opacity = '1';
+                    }
+                });
+            }
+
+            // 初始設置
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transition = 'opacity 0.8s ease, transform 0.5s ease';
+            });
+
+            // 檢查初始位置
+            setTimeout(checkScroll, 100);
+
+            // 滾動時檢查
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+
+</html>
