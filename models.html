@@ -13,6 +13,42 @@
     <link rel="manifest" href="my-favicon/site.webmanifest" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .card-hover-effect:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .card-content {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover-effect:hover .card-content {
+            transform: translateY(-2px);
+        }
+
+        .handwritten {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* 按鈕隱藏效果 */
+        .detail-button {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .card-hover-effect:hover .detail-button {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body class="bg-orange-300 bg-cover bg-center text-center font-sans min-h-screen flex flex-col"
@@ -43,89 +79,108 @@
         </div>
     </header>
 
-
-
     <!-- Model Grid -->
     <main class="flex-grow flex items-center justify-center px-4 py-16">
         <div class="w-[80%] mx-auto grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
 
             <!-- 卡片風格一：便利貼風 -->
-            <div class="bg-yellow-50 p-4 text-sm rounded-2xl shadow-lg rotate-[-2deg] relative">
-                <h2 class="text-xl font-bold handwritten text-gray-800">RapidTA</h2>
-                <p class="mt-1 text-gray-800">我是行動派選手，小巧但有力！</p>
-                <img src="img_models/M_TA.svg" alt="RapidTA" class="w-full h-auto object-contain rounded mb-3" />
-                <ul class="mt-2 space-y-1">
-                    <li>行程：100mm</li>
-                    <li>負載：20kg</li>
-                    <li>樣品：小型食品、薄膜材質</li>
-                    <li>場景：食品研發、生產現場的快速QC</li>
-                </ul>
-                <div class="pt-3">
-                    <a href="models/models_RTA.html">
-                        <button
-                            class="border-2 border-yellow-800 text-yellow-800 bg-transparent px-2 py-1 rounded-lg hover:bg-yellow-100 w-full">詳細介紹</button>
-                    </a>
+            <a href="models/models_RTA.html" class="block">
+                <div class="bg-yellow-50 p-4 text-sm rounded-2xl shadow-lg rotate-[-2deg] relative card-hover-effect">
+                    <div class="card-content">
+                        <h2 class="text-xl font-bold handwritten text-gray-800">RapidTA</h2>
+                        <p class="mt-1 text-gray-800">我是行動派選手，小巧但有力！</p>
+                        <img src="img_models/M_TA.svg" alt="RapidTA"
+                            class="w-full h-auto object-contain rounded mb-3" />
+                        <ul class="mt-2 space-y-1">
+                            <li>行程：100mm</li>
+                            <li>負載：20kg</li>
+                            <li>樣品：小型食品、薄膜材質</li>
+                            <li>場景：食品研發、生產現場的快速QC</li>
+                        </ul>
+                        <div class="pt-3">
+                            <button
+                                class="border-2 border-yellow-800 text-yellow-800 bg-transparent px-2 py-1 rounded-lg hover:bg-yellow-100 w-full detail-button">
+                                詳細介紹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 卡片風格二：筆記紙風 -->
-            <div
-                class="bg-white border-4 border-dashed border-blue-300 p-4 text-sm rounded-2xl rotate-[1deg] shadow relative">
-                <h2 class="text-xl font-bold handwritten text-blue-800">RapidTAHD</h2>
-                <p class="mt-1 text-blue-800">穩定耐操，重負載選手！</p>
-                <img src="img_models/M_HD.svg" alt="RapidTAHD" class="w-full h-auto object-contain rounded mb-3" />
-                <ul class="mt-2 space-y-1 text-blue-800">
-                    <li>行程：100mm</li>
-                    <li>負載：100kg</li>
-                    <li>樣品：厚重食品、硬質包裝材料</li>
-                    <li>場景：生產線端QC、大型實驗室</li>
-                </ul>
-                <div class="pt-3">
-                    <a href="models/models_RTAHD.html">
-                        <button
-                            class="border-2 border-blue-800 text-blue-800 bg-transparent px-2 py-1 rounded-lg hover:bg-blue-100 w-full">詳細介紹</button>
-                    </a>
+            <a href="models/models_RTAHD.html" class="block">
+                <div
+                    class="bg-white border-4 border-dashed border-blue-300 p-4 text-sm rounded-2xl rotate-[1deg] shadow relative card-hover-effect">
+                    <div class="card-content">
+                        <h2 class="text-xl font-bold handwritten text-blue-800">RapidTAHD</h2>
+                        <p class="mt-1 text-blue-800">穩定耐操，重負載選手！</p>
+                        <img src="img_models/M_HD.svg" alt="RapidTAHD"
+                            class="w-full h-auto object-contain rounded mb-3" />
+                        <ul class="mt-2 space-y-1 text-blue-800">
+                            <li>行程：100mm</li>
+                            <li>負載：100kg</li>
+                            <li>樣品：厚重食品、硬質包裝材料</li>
+                            <li>場景：生產線端QC、大型實驗室</li>
+                        </ul>
+                        <div class="pt-3">
+                            <button
+                                class="border-2 border-blue-800 text-blue-800 bg-transparent px-2 py-1 rounded-lg hover:bg-blue-100 w-full detail-button">
+                                詳細介紹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 卡片風格三：拼貼風 -->
-            <div
-                class="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 p-4 text-sm rounded-2xl rotate-[-1deg] shadow-md relative">
-                <h2 class="text-xl font-bold handwritten text-gray-600">RapidTA+</h2>
-                <p class="mt-1 text-gray-600">研發與QC兼顧，靈活又專業！</p>
-                <img src="img_models/M_plus.svg" alt="RapidTA+" class="w-full h-auto object-contain rounded mb-3" />
-                <ul class="mt-2 space-y-1 text-gray-600">
-                    <li>行程：200mm</li>
-                    <li>負載：20kg</li>
-                    <li>樣品：食品樣本、凝膠類產品</li>
-                    <li>場景：小型生產QC、學術研究</li>
-                </ul>
-                <div class="pt-3">
-                    <a href="models/models_RTAPLUS.html">
-                        <button
-                            class="border-2 border-gray-800 text-gray-800 bg-transparent px-2 py-1 rounded-lg hover:bg-gray-100 w-full">詳細介紹</button>
-                    </a>
+            <a href="models/models_RTAPLUS.html" class="block">
+                <div
+                    class="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 p-4 text-sm rounded-2xl rotate-[-1deg] shadow-md relative card-hover-effect">
+                    <div class="card-content">
+                        <h2 class="text-xl font-bold handwritten text-gray-600">RapidTA+</h2>
+                        <p class="mt-1 text-gray-600">研發與QC兼顧，靈活又專業！</p>
+                        <img src="img_models/M_plus.svg" alt="RapidTA+"
+                            class="w-full h-auto object-contain rounded mb-3" />
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>行程：200mm</li>
+                            <li>負載：20kg</li>
+                            <li>樣品：食品樣本、凝膠類產品</li>
+                            <li>場景：小型生產QC、學術研究</li>
+                        </ul>
+                        <div class="pt-3">
+                            <button
+                                class="border-2 border-gray-800 text-gray-800 bg-transparent px-2 py-1 rounded-lg hover:bg-gray-100 w-full detail-button">
+                                詳細介紹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 卡片風格四：拍立得風 -->
-            <div class="bg-white border-8 border-black p-4 text-sm rounded-2xl shadow relative rotate-[2deg]">
-                <h2 class="text-xl font-bold handwritten text-gray-600">RapidTAMAX</h2>
-                <p class="mt-1 text-gray-600">高階選手，延伸功能最完整！</p>
-                <img src="img_models/M_max.svg" alt="RapidTAMAX" class="w-full h-auto object-contain rounded mb-3" />
-                <ul class="mt-2 space-y-1 text-gray-600">
-                    <li>行程：350mm</li>
-                    <li>負載：50kg</li>
-                    <li>樣品：應力應變性測試樣本</li>
-                    <li>場景：進階研究所、專業檢驗單位</li>
-                </ul>
-                <div class="pt-3">
-                    <a href="models/models_RTAMAX.html">
-                        <button
-                            class="border-2 border-black text-black bg-transparent px-2 py-1 rounded-lg hover:bg-gray-100 w-full">詳細介紹</button>
-                    </a>
+            <a href="models/models_RTAMAX.html" class="block">
+                <div
+                    class="bg-white border-8 border-black p-4 text-sm rounded-2xl shadow relative rotate-[2deg] card-hover-effect">
+                    <div class="card-content">
+                        <h2 class="text-xl font-bold handwritten text-gray-600">RapidTAMAX</h2>
+                        <p class="mt-1 text-gray-600">高階選手，延伸功能最完整！</p>
+                        <img src="img_models/M_max.svg" alt="RapidTAMAX"
+                            class="w-full h-auto object-contain rounded mb-3" />
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>行程：350mm</li>
+                            <li>負載：50kg</li>
+                            <li>樣品：應力應變性測試樣本</li>
+                            <li>場景：進階研究所、專業檢驗單位</li>
+                        </ul>
+                        <div class="pt-3">
+                            <button
+                                class="border-2 border-black text-black bg-transparent px-2 py-1 rounded-lg hover:bg-gray-100 w-full detail-button">
+                                詳細介紹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
 
         </div>
     </main>
