@@ -211,8 +211,16 @@
         }
 
         .card {
-            transition: all 0.3s ease;
-            overflow: hidden;
+
+            border-radius: 1rem;
+            /* 2xl */
+            box-shadow: 0 8px 16px rgba(0, 43, 92, 0.08);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
@@ -236,6 +244,19 @@
         .card:hover::before {
             transform: scale(20);
             opacity: 0.03;
+        }
+
+
+        .with-lines {
+            background-image: repeating-linear-gradient(45deg,
+                    rgba(0, 0, 0, 0.05),
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px,
+                    transparent 10px);
+        }
+
+        .comic-outline {
+            box-shadow: -4px 4px 0px 0px rgba(255, 255, 255, 0.7);
         }
     </style>
 </head>
@@ -310,7 +331,7 @@
                 <h3 class="text-xl font-bold p-4 bg-blue-900">【研發專欄】應用介紹</h3>
                 <div class="p-4">
                     <p class="text-sm leading-relaxed">
-                        RTA 工程團隊正開發高靈敏度探頭，將可更準確分析果凍、醬料等柔軟樣品的質構變化。預計 Q3 上市，敬請期待！
+                        RapidTA 工程團隊正開發高靈敏度探頭，將可更準確分析果凍、醬料等柔軟樣品的質構變化。預計 Q3 上市，敬請期待！
                     </p>
                     <div
                         class="mt-6 p-3 bg-white bg-opacity-20 rounded-lg text-center hover:bg-opacity-30 transition-all duration-300">
@@ -322,12 +343,12 @@
             </section>
 
             <!-- 活動快訊 -->
-            <section class="md:col-span-4 relative bg-blue-50 rounded-lg overflow-hidden shadow-lg card">
+            <section class="md:col-span-4 relative bg-blue-100 rounded-lg overflow-hidden shadow-lg card">
                 <div class="absolute top-0 left-0 w-full h-full dotted-bg"></div>
                 <h3 class="text-xl font-bold p-4 bg-blue-500 text-white relative z-10">【活動快訊】我們要參展啦！</h3>
                 <div class="p-4 relative z-10">
                     <p class="text-sm leading-relaxed">
-                        歡迎蒞臨 2025 台北國際儀器展，RTA將展出全系列 RapidTA 機種，並現場進行質構測試體驗活動。
+                        歡迎蒞臨 2025 台北國際儀器展，RapidTA將展出全系列機種，並現場進行質構測試體驗活動。
                     </p>
                     <div class="mt-6 p-4 bg-white rounded-lg text-center shadow-inner">
                         <div class="font-bold text-blue-600 text-lg mb-2">展覽資訊</div>
@@ -348,22 +369,38 @@
 
             <!-- 顧客故事 -->
             <section
-                class="md:col-span-4 bg-gradient-to-br from-cyan-50 to-blue-100 rounded-lg overflow-hidden shadow-lg card">
-                <h3 class="text-xl font-bold p-4 bg-cyan-500 text-white">【顧客故事】豆花店的神隊友</h3>
-                <div class="p-4">
-                    <div class="bubble">
-                        <p class="text-sm italic">
-                            「有了 RapidTA，我們可以更安心控管豆花軟硬度，品質穩定，客訴明顯下降。天天都有好口感！」
-                        </p>
-                    </div>
-                    <div class="mt-8 text-center">
+                class="md:col-span-4 card hover-lift bg-gradient-to-br from-cyan-50 to-blue-100 relative overflow-hidden border-4 border-blue-300 rounded-xl shadow-xl comic-outline">
+
+                <!-- 背景線條 -->
+                <div class="absolute top-0 left-0 w-full h-full with-lines opacity-10 z-0 pointer-events-none"></div>
+
+                <!-- 標題區塊 -->
+                <h3
+                    class="text-xl font-bold p-4 bg-blue-300 text-white tracking-wider uppercase relative z-10 shadow-md">
+                    【客戶回應】想吃豆花啦 🍧
+                </h3>
+
+                <!-- 內文區塊 -->
+                <div class="p-6 flex flex-col gap-6 relative z-10 font-sans">
+
+                    <!-- 引言 -->
+                    <p
+                        class="text-base text-sky-900 p-5 rounded-md border-2 border-blue-400 shadow-inner bg-white leading-relaxed font-medium">
+                        「有了 <span class="font-bold text-blue-700">RapidTA</span>，我們可以更安心控管豆花軟硬度，品質穩定，客訴明顯下降。」<br />
+                        <span class="font-bold text-blue-800 block mt-2">👉 天天都有好口感！</span>
+                    </p>
+
+                    <!-- 強調數據 -->
+                    <div class="text-center">
                         <div
-                            class="inline-block px-4 py-2 bg-sky-300 rounded-full transform -rotate-2 font-bold text-blue-800 hover:rotate-0 transition-transform duration-300">
-                            顧客滿意度提升 30%
+                            class="inline-block px-5 py-2 text-rose-800 bg-yellow-100 font-bold text-base font-comic rounded-lg -rotate-2 hover:rotate-0 hover:scale-105 transition-transform duration-300 shadow-lg ring-2 ring-rose-300">
+                            ★ 顧客滿意度提升 30% ★
                         </div>
                     </div>
                 </div>
             </section>
+
+
 
             <!-- 小編專欄 -->
             <section class="md:col-span-12 fun-border rounded-lg p-6 mt-8 wave-pattern card">
@@ -383,7 +420,7 @@
                             它不是硬不硬的問題，而是<span class="text-blue-700 font-bold">可預期的品質體驗</span>。質構儀，就是這種穩定的後盾。
                         </p>
                         <p class="text-base leading-relaxed mt-4">
-                            您有沒有想過，為什麼有些產品讓顧客一試成主顧？除了味道，那細微的口感差異才是真正的關鍵。讓 RTA 與您一起，打造專屬於您品牌的質構語言！
+                            您有沒有想過，為什麼有些產品讓顧客一試成主顧？除了味道，那細微的口感差異才是真正的關鍵。讓RapidTA與您一起，打造專屬於您品牌的質構語言！
                         </p>
                     </div>
                     <div class="md:w-1/4 flex items-center justify-center">
@@ -415,7 +452,10 @@
                     <h4 class="font-bold text-2xl mb-4">📧 訂閱電子報</h4>
                     <div class="bg-white bg-opacity-20 p-4 rounded-lg">
                         <p class="text-base mb-3">掃描 QR code 訂閱每月更新</p>
-                        <div class="w-24 h-24 mx-auto bg-white rounded-lg"></div>
+                        <div class="w-24 h-24 mx-auto bg-white rounded-lg">
+                            <img src="img_about/qrcode.svg" alt="訂閱電子報 QR Code"
+                                class="w-full h-full object-contain rounded" />
+                        </div>
                     </div>
                 </div>
                 <div class="text-center transform hover:scale-105 transition-transform duration-300">
@@ -455,7 +495,7 @@
         <footer class="mt-4 text-center p-6 text-xs text-gray-500">
             <div
                 class="inline-block transform -rotate-1 bg-blue-50 p-3 rounded-lg border border-blue-200 hover:rotate-1 transition-transform duration-300">
-                本報僅供創意展示使用，內容如有雷同純屬巧合。© RTA食品質構儀 2025
+                本報僅供創意展示使用，內容如有雷同純屬巧合。© RapidTA食品質構儀 2025
             </div>
         </footer>
     </div>
