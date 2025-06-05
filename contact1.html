@@ -1,70 +1,572 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我們 | RTA 品牌發展歷程</title>
+    <meta name="description" content="RTA 食品質構儀原理介紹與通用探頭說明，了解專業食品檢測技術。">
+    <title>RTA 原理介紹 - 食品質構儀解決方案</title>
+
+    <!-- Favicon 設定 -->
     <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
     <link rel="shortcut icon" href="my-favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="RapidTA" />
     <link rel="manifest" href="my-favicon/site.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RTA 品牌發展歷程 - 從 2018 年起銷售自有品牌質構儀 RapidTA 系列，拓展至多國市場，專注於食品與農業產業應用。">
-    <meta name="keywords" content="質構儀, RapidTA, 品牌故事, 食品檢測, RTA, Texture Analyzer, 品牌歷史">
-    <meta name="author" content="RTA Rapid Texture Analyzer">
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        .timeline-card {
-            min-width: 280px;
-            max-width: 300px;
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .timeline-scroll::-webkit-scrollbar {
-            height: 10px;
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .timeline-scroll::-webkit-scrollbar-thumb {
-            background-color: #60a5fa;
-            border-radius: 5px;
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .animate-bounce-in {
+            animation: bounce-in 0.6s ease-out;
+        }
+
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .principle-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-diagram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .probe-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .probe-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .probe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        :root {
+            --primary-text: #1a202c;
+            --accent-bg: #fef3c7;
+            --header-bg: #fbcfe8;
+        }
+
+        body {
+            color: var(--primary-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-    <header class="bg-blue-100 py-8 shadow-md">
-        <div class="max-w-6xl mx-auto px-6">
-            <h1 class="text-4xl font-bold text-blue-800">我們的品牌故事</h1>
-            <p class="mt-2 text-lg text-blue-700">從 2018 年出發，RTA 走過的每一步，都是為了讓世界吃得更安心。</p>
+<body>
+    <header class="bg-gradient-to-r from-blue-50 to-blue-100 py-4 shadow-lg backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="self-center lg:self-auto">
+                <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                    class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+            </a>
+            <nav aria-label="主導航">
+                <ul class="flex gap-6">
+                    <li><a href="models.html" class="hover:text-pink-600 font-medium transition-colors">產品</a></li>
+                    <li><a href="accessories.html" class="hover:text-pink-600 font-medium transition-colors">應用資源</a>
+                    </li>
+                    <li><a href="contact.html" class="hover:text-pink-600 font-medium transition-colors">聯絡我們</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="py-16">
-        <section class="max-w-full px-6">
-            <h2 class="text-3xl font-semibold text-center mb-12">發展歷程</h2>
-            <div class="overflow-x-auto whitespace-nowrap flex space-x-6 px-4 timeline-scroll">
-                <!-- 卡片式時間點（橫向卷軸） -->
-                <div class="timeline-card bg-white shadow-lg rounded-2xl p-4 flex-shrink-0 border border-blue-200">
-                    <h3 class="text-lg font-bold text-blue-700">2018 年 9 月</h3>
-                    <p class="text-sm text-gray-700 mt-2">開始銷售 iDealTA® 質構儀（後改名為 RapidTA max）。</p>
-                </div>
+    <main>
+        <section class="px-4 md:px-6 py-12 max-w-6xl mx-auto mt-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 relative inline-block animate-fade-in">
+                🔬 原理介紹 Principles
+                <span
+                    class="absolute -top-4 -right-6 rotate-3 bg-gradient-to-r from-yellow-400 to-orange-400 px-3 py-1 text-sm font-semibold rounded-full shadow-lg animate-bounce">Tech!</span>
+            </h1>
 
-                <div class="timeline-card bg-white shadow-lg rounded-2xl p-4 flex-shrink-0 border border-blue-200">
-                    <h3 class="text-lg font-bold text-blue-700">2024 年 6 月</h3>
-                    <p class="text-sm text-gray-700 mt-2">前往印度新德里拜訪經銷商，啟動全球行銷旅程。</p>
-                </div>
+            <p
+                class="text-xl mb-10 leading-relaxed bg-white/90 p-6 rounded-xl shadow-lg backdrop-blur-sm animate-fade-in">
+                RTA 食品質構儀基於精密力學原理，透過標準化的機械測試方法，量化食品的物理特性。讓感官體驗轉化為可測量、可比較的科學數據。
+            </p>
 
-                <!-- 更多事件卡片可依序加入 -->
+            <!-- 原理介紹動畫區域 -->
+            <section class="mb-16" id="principle-section">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in">🎯 工作原理</h2>
+
+                <div class="principle-diagram animate-bounce-in">
+                    <div class="grid md:grid-cols-3 gap-8 text-white relative z-10">
+                        <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                            onclick="openModal('force-modal')">
+                            <div class="text-6xl mb-4 animate-float">⚡</div>
+                            <h3 class="text-xl font-bold mb-2">力量施加</h3>
+                            <p class="text-sm opacity-90">精密馬達驅動探頭，施加標準化的力量</p>
+                        </div>
+
+                        <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                            onclick="openModal('sensor-modal')">
+                            <div class="text-6xl mb-4 animate-float" style="animation-delay: 0.5s">📊</div>
+                            <h3 class="text-xl font-bold mb-2">數據收集</h3>
+                            <p class="text-sm opacity-90">高精度傳感器即時記錄力值變化</p>
+                        </div>
+
+                        <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                            onclick="openModal('analysis-modal')">
+                            <div class="text-6xl mb-4 animate-float" style="animation-delay: 1s">🧮</div>
+                            <h3 class="text-xl font-bold mb-2">智能分析</h3>
+                            <p class="text-sm opacity-90">專業軟體自動計算質構參數</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 通用探頭介紹 -->
+            <section class="mb-16" id="probe-section">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in">🧰 通用探頭系統</h2>
+
+                <div class="probe-showcase">
+                    <div class="probe-card interactive-card animate-bounce-in" onclick="openModal('compression-modal')">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 animate-pulse-glow">
+                                ⚪
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">圓柱壓頭</h3>
+                                <p class="text-gray-600">Cylindrical Probe</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">最常用的通用探頭，適用於大多數食品的壓縮測試</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">果凍</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">豆花</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">起司</span>
+                        </div>
+                    </div>
+
+                    <div class="probe-card interactive-card animate-bounce-in" style="animation-delay: 0.2s"
+                        onclick="openModal('needle-modal')">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 animate-pulse-glow">
+                                📍
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">針狀穿刺頭</h3>
+                                <p class="text-gray-600">Needle Probe</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">精密穿刺測試，測量食品內部結構強度</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">水果</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">藥錠</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">甜點</span>
+                        </div>
+                    </div>
+
+                    <div class="probe-card interactive-card animate-bounce-in" style="animation-delay: 0.4s"
+                        onclick="openModal('shear-modal')">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 animate-pulse-glow">
+                                ✂️
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">T型剪切刀</h3>
+                                <p class="text-gray-600">T-Blade Shear</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">模擬剪切動作，評估食品的剪切強度</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">肉乾</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">能量條</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">結塊食材</span>
+                        </div>
+                    </div>
+
+                    <div class="probe-card interactive-card animate-bounce-in" style="animation-delay: 0.6s"
+                        onclick="openModal('bend-modal')">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 animate-pulse-glow">
+                                📐
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">三點彎曲支架</h3>
+                                <p class="text-gray-600">3-Point Bend Rig</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">標準三點彎曲測試，評估脆性食品的破裂強度</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">餅乾</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">酥餅</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">薄脆</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA 區域 -->
+            <div
+                class="bg-gradient-to-r from-yellow-100 to-orange-100 p-8 mt-16 rounded-2xl text-center animate-fade-in shadow-xl">
+                <h3 class="text-2xl font-bold mb-4">🚀 準備開始您的食品檢測之旅？</h3>
+                <p class="mb-6 text-lg">選擇最適合的機型和探頭，開啟精準的食品質構分析</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="models/select-model.html"
+                        class="inline-block bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+                        aria-label="前往選機小測驗">
+                        🔍 選機測驗
+                    </a>
+                    <a href="models.html"
+                        class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+                        aria-label="查看所有產品">
+                        📱 查看產品
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-blue-100 text-blue-800 text-center py-8 mt-16">
-        <p>© 2025 RTA Rapid Texture Analyzer 品牌版權所有</p>
-    </footer>
-</body>
+    <!-- 彈出視窗 -->
+    <div id="force-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">⚡ 力量施加系統</h3>
+                <button onclick="closeModal('force-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>RTA 質構儀採用高精度步進馬達驅動系統，能夠提供穩定且可重複的力量輸出。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>力量範圍：0.1N - 1000N</li>
+                    <li>速度控制：0.1-500 mm/min</li>
+                    <li>位置精度：±0.01mm</li>
+                    <li>力值精度：±0.1% F.S.</li>
+                </ul>
+                <p>透過精密的力量控制，確保每次測試的一致性和準確性。</p>
+            </div>
+        </div>
+    </div>
 
-</html>
+    <div id="sensor-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">📊 數據收集系統</h3>
+                <button onclick="closeModal('sensor-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>採用高精度負載傳感器，實時記錄力值、位移、時間等關鍵參數。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>數據採集頻率：1000Hz</li>
+                    <li>負載精度：±0.1% F.S.</li>
+                    <li>位移精度：±0.01mm</li>
+                    <li>溫度補償：自動校正</li>
+                </ul>
+                <p>高頻率的數據採集確保捕捉到食品變形過程中的每個細微變化。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="analysis-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">🧮 智能分析系統</h3>
+                <button onclick="closeModal('analysis-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>專業的質構分析軟體，自動計算多種質構參數。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>硬度 (Hardness)</li>
+                    <li>彈性 (Springiness)</li>
+                    <li>黏著性 (Adhesiveness)</li>
+                    <li>咀嚼性 (Chewiness)</li>
+                    <li>破裂強度 (Fracture Force)</li>
+                </ul>
+                <p>一鍵生成專業報告，支援多種格式導出。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="compression-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">⚪ 圓柱壓頭詳細介紹</h3>
+                <button onclick="closeModal('compression-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>圓柱壓頭是最常用的通用探頭，適用於各種食品的壓縮測試。</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold mb-2">規格參數：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>直徑：36mm (標準)</li>
+                            <li>材質：不鏽鋼</li>
+                            <li>表面：拋光處理</li>
+                            <li>連接：螺紋固定</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">適用測試：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>壓縮測試</li>
+                            <li>質構剖析 (TPA)</li>
+                            <li>應力鬆弛</li>
+                            <li>蠕變測試</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="needle-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">📍 針狀穿刺頭詳細介紹</h3>
+                <button onclick="closeModal('needle-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>針狀穿刺頭專為精密穿刺測試設計，能夠測量食品內部結構的強度。</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold mb-2">規格參數：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>直徑：2mm</li>
+                            <li>長度：50mm</li>
+                            <li>材質：不鏽鋼</li>
+                            <li>尖端：錐形設計</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">測試優勢：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>微創測試</li>
+                            <li>精確定位</li>
+                            <li>層次分析</li>
+                            <li>表面影響小</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="shear-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">✂️ T型剪切刀詳細介紹</h3>
+                <button onclick="closeModal('shear-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>T型剪切刀模擬人類咀嚼時的剪切動作，評估食品的剪切強度。</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold mb-2">設計特點：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>T型結構設計</li>
+                            <li>銳利刀刃</li>
+                            <li>雙向剪切</li>
+                            <li>防滑固定</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">應用場景：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>纖維性食品</li>
+                            <li>層狀結構</li>
+                            <li>韌性材料</li>
+                            <li>複合食品</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bend-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">📐 三點彎曲支架詳細介紹</h3>
+                <button onclick="closeModal('bend-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>三點彎曲支架是評估脆性食品機械性能的標準測試裝置。</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold mb-2">結構組成：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>底部支撐座</li>
+                            <li>可調支點</li>
+                            <li>中央加載頭</li>
+                            <li>樣品固定器</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">測試指標：</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>彎曲強度</li>
+                            <li>彎曲模量</li>
+                            <li>破裂荷重</li>
+                            <li>撓度變形</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-100 py-8 mt-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h2 class="font-bold text-lg mb-3">RapidTA 食品質構儀</h2>
+                    <p class="text-sm text-gray-600 mb-3">專業的食品質地檢測解決方案，為食品研發與品質控管提供精確數據支援。</p>
+                    <p class="text-sm">
+                        <a href="models.html" class="text-red-600 hover:underline">了解更多 →</a>
+                    </p>
+                </div>
