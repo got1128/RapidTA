@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原理介紹動畫區域</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-bounce-in {
+            animation: bounce-in 0.6s ease-out;
+        }
+
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .principle-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-diagram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 原理介紹動畫區域 -->
+    <section class="mb-16" id="principle-section">
+        <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in">🎯 工作原理</h2>
+
+        <div class="principle-diagram animate-bounce-in">
+            <div class="grid md:grid-cols-3 gap-8 text-white relative z-10">
+                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                    onclick="openModal('force-modal')">
+                    <div class="text-6xl mb-4 animate-float">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">力量施加</h3>
+                    <p class="text-sm opacity-90">精密馬達驅動探頭，施加標準化的力量</p>
+                </div>
+
+                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                    onclick="openModal('sensor-modal')">
+                    <div class="text-6xl mb-4 animate-float" style="animation-delay: 0.5s">📊</div>
+                    <h3 class="text-xl font-bold mb-2">數據收集</h3>
+                    <p class="text-sm opacity-90">高精度傳感器即時記錄力值變化</p>
+                </div>
+
+                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
+                    onclick="openModal('analysis-modal')">
+                    <div class="text-6xl mb-4 animate-float" style="animation-delay: 1s">🧮</div>
+                    <h3 class="text-xl font-bold mb-2">智能分析</h3>
+                    <p class="text-sm opacity-90">專業軟體自動計算質構參數</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 彈出視窗 -->
+    <div id="force-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">⚡ 力量施加系統</h3>
+                <button onclick="closeModal('force-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>RTA 質構儀採用高精度步進馬達驅動系統，能夠提供穩定且可重複的力量輸出。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>力量範圍：0.1N - 1000N</li>
+                    <li>速度控制：0.1-500 mm/min</li>
+                    <li>位置精度：±0.01mm</li>
+                    <li>力值精度：±0.1% F.S.</li>
+                </ul>
+                <p>透過精密的力量控制，確保每次測試的一致性和準確性。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="sensor-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">📊 數據收集系統</h3>
+                <button onclick="closeModal('sensor-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>採用高精度負載傳感器，實時記錄力值、位移、時間等關鍵參數。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>數據採集頻率：1000Hz</li>
+                    <li>負載精度：±0.1% F.S.</li>
+                    <li>位移精度：±0.01mm</li>
+                    <li>溫度補償：自動校正</li>
+                </ul>
+                <p>高頻率的數據採集確保捕捉到食品變形過程中的每個細微變化。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="analysis-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">🧮 智能分析系統</h3>
+                <button onclick="closeModal('analysis-modal')"
+                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <p>專業的質構分析軟體，自動計算多種質構參數。</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>硬度 (Hardness)</li>
+                    <li>彈性 (Springiness)</li>
+                    <li>黏著性 (Adhesiveness)</li>
+                    <li>咀嚼性 (Chewiness)</li>
+                    <li>破裂強度 (Fracture Force)</li>
+                </ul>
+                <p>一鍵生成專業報告，支援多種格式導出。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+        }
+
+        // 點擊模態框背景關閉
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // ESC 鍵關閉模態框
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
