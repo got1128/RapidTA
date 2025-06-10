@@ -1,263 +1,393 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>原理介紹動畫區域</title>
+    <title>測試方法表格</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .modal-backdrop {
+            backdrop-filter: blur(4px);
         }
 
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce-in {
-            0% {
-                transform: scale(0.3);
-                opacity: 0;
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            70% {
-                transform: scale(0.9);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 1s ease-out;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-bounce-in {
-            animation: bounce-in 0.6s ease-out;
-        }
-
-        .interactive-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .interactive-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .principle-diagram {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .principle-diagram::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            transform: scale(0.7);
-            transition: all 0.3s ease;
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            padding: 2rem;
+        .gif-container {
+            aspect-ratio: 16/9;
+            background: #f3f4f6;
         }
     </style>
 </head>
 
-<body>
-    <!-- 原理介紹動畫區域 -->
-    <section class="mb-16" id="principle-section">
-        <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in">🎯 工作原理</h2>
-
-        <div class="principle-diagram animate-bounce-in">
-            <div class="grid md:grid-cols-3 gap-8 text-white relative z-10">
-                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
-                    onclick="openModal('force-modal')">
-                    <div class="text-6xl mb-4 animate-float">⚡</div>
-                    <h3 class="text-xl font-bold mb-2">力量施加</h3>
-                    <p class="text-sm opacity-90">精密馬達驅動探頭，施加標準化的力量</p>
-                </div>
-
-                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
-                    onclick="openModal('sensor-modal')">
-                    <div class="text-6xl mb-4 animate-float" style="animation-delay: 0.5s">📊</div>
-                    <h3 class="text-xl font-bold mb-2">數據收集</h3>
-                    <p class="text-sm opacity-90">高精度傳感器即時記錄力值變化</p>
-                </div>
-
-                <div class="text-center interactive-card bg-white/20 p-6 rounded-xl backdrop-blur-sm"
-                    onclick="openModal('analysis-modal')">
-                    <div class="text-6xl mb-4 animate-float" style="animation-delay: 1s">🧮</div>
-                    <h3 class="text-xl font-bold mb-2">智能分析</h3>
-                    <p class="text-sm opacity-90">專業軟體自動計算質構參數</p>
-                </div>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-4">
+        <section class="col-span-full" id="test-methods">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+                🎯 想測什麼？對應的測試方式 & 數據結果
+            </h2>
+            <div class="overflow-x-auto">
+                <table
+                    class="table-auto w-full text-left border border-gray-300 bg-white/90 backdrop-blur rounded-lg shadow">
+                    <caption class="sr-only">測試方式與適用情境對照表</caption>
+                    <thead class="bg-blue-100">
+                        <tr>
+                            <th class="px-4 py-2" scope="col">測試種類</th>
+                            <th class="px-4 py-2" scope="col">對應產品</th>
+                            <th class="px-4 py-2" scope="col">數據結果</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(0)">
+                            <td class="px-4 py-2">黏性/蠕變</td>
+                            <td class="px-4 py-2">麵團</td>
+                            <td class="px-4 py-2">膨發性，黏性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(1)">
+                            <td class="px-4 py-2">破裂強度測試</td>
+                            <td class="px-4 py-2">餅皮，水餃皮</td>
+                            <td class="px-4 py-2">延伸強度，延展性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(2)">
+                            <td class="px-4 py-2">壓縮測試</td>
+                            <td class="px-4 py-2">麵包，蛋糕，肉類</td>
+                            <td class="px-4 py-2">硬度，彈性，咀嚼性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(3)">
+                            <td class="px-4 py-2">切割測試</td>
+                            <td class="px-4 py-2">蔬菜，水果，肉類</td>
+                            <td class="px-4 py-2">切割力，脆性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(4)">
+                            <td class="px-4 py-2">擠壓測試</td>
+                            <td class="px-4 py-2">果醬，醬料，膠囊</td>
+                            <td class="px-4 py-2">流動性，黏性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(5)">
+                            <td class="px-4 py-2">彎曲測試</td>
+                            <td class="px-4 py-2">餅乾，薄片</td>
+                            <td class="px-4 py-2">韌性，斷裂點</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(6)">
+                            <td class="px-4 py-2">穿刺測試</td>
+                            <td class="px-4 py-2">水果，肉類，膜材</td>
+                            <td class="px-4 py-2">穿透力，韌性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(7)">
+                            <td class="px-4 py-2">鬆弛測試</td>
+                            <td class="px-4 py-2">麵團，膠體</td>
+                            <td class="px-4 py-2">應力鬆弛，黏彈性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(8)">
+                            <td class="px-4 py-2">拉伸測試</td>
+                            <td class="px-4 py-2">糖果，起司，麵條</td>
+                            <td class="px-4 py-2">拉伸強度，延展性</td>
+                        </tr>
+                        <tr class="border-t hover:bg-gray-50 cursor-pointer transition-colors" onclick="openModal(9)">
+                            <td class="px-4 py-2">全質構測試</td>
+                            <td class="px-4 py-2">各類食品</td>
+                            <td class="px-4 py-2">完整質構參數</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm text-gray-500 mt-2">💡 每一筆結果都能自動產出報表，支援圖表、數值、導出格式自訂！</p>
             </div>
-        </div>
-    </section>
-
-    <!-- 彈出視窗 -->
-    <div id="force-modal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-2xl font-bold">⚡ 力量施加系統</h3>
-                <button onclick="closeModal('force-modal')"
-                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="space-y-4">
-                <p>RTA 質構儀採用高精度步進馬達驅動系統，能夠提供穩定且可重複的力量輸出。</p>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li>力量範圍：0.1N - 1000N</li>
-                    <li>速度控制：0.1-500 mm/min</li>
-                    <li>位置精度：±0.01mm</li>
-                    <li>力值精度：±0.1% F.S.</li>
-                </ul>
-                <p>透過精密的力量控制，確保每次測試的一致性和準確性。</p>
-            </div>
-        </div>
+        </section>
     </div>
 
-    <div id="sensor-modal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-2xl font-bold">📊 數據收集系統</h3>
-                <button onclick="closeModal('sensor-modal')"
-                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+    <!-- Modal -->
+    <div id="modal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-6 border-b">
+                <div class="flex items-center gap-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <div class="flex gap-2">
+                        <button onclick="previousTest()"
+                            class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button onclick="nextTest()"
+                            class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl">
+                    ×
+                </button>
             </div>
-            <div class="space-y-4">
-                <p>採用高精度負載傳感器，實時記錄力值、位移、時間等關鍵參數。</p>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li>數據採集頻率：1000Hz</li>
-                    <li>負載精度：±0.1% F.S.</li>
-                    <li>位移精度：±0.01mm</li>
-                    <li>溫度補償：自動校正</li>
-                </ul>
-                <p>高頻率的數據採集確保捕捉到食品變形過程中的每個細微變化。</p>
-            </div>
-        </div>
-    </div>
 
-    <div id="analysis-modal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-2xl font-bold">🧮 智能分析系統</h3>
-                <button onclick="closeModal('analysis-modal')"
-                    class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="space-y-4">
-                <p>專業的質構分析軟體，自動計算多種質構參數。</p>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li>硬度 (Hardness)</li>
-                    <li>彈性 (Springiness)</li>
-                    <li>黏著性 (Adhesiveness)</li>
-                    <li>咀嚼性 (Chewiness)</li>
-                    <li>破裂強度 (Fracture Force)</li>
-                </ul>
-                <p>一鍵生成專業報告，支援多種格式導出。</p>
+            <!-- Content -->
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Left: Info -->
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">🎯 對應產品</h4>
+                            <p id="modal-products" class="text-gray-600 bg-blue-50 p-3 rounded-lg"></p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">📊 數據結果</h4>
+                            <p id="modal-results" class="text-gray-600 bg-green-50 p-3 rounded-lg"></p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">📝 詳細說明</h4>
+                            <p id="modal-description" class="text-gray-600 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <!-- Right: GIF Gallery -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-semibold text-gray-700">🎬 範例動畫</h4>
+                            <div id="gif-counter" class="text-sm text-gray-500"></div>
+                        </div>
+
+                        <div class="relative">
+                            <div id="gif-container"
+                                class="gif-container rounded-lg overflow-hidden flex items-center justify-center">
+                                <img id="current-gif" src="" alt="測試動畫" class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- GIF Navigation -->
+                            <button id="prev-gif" onclick="previousGif()"
+                                class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button id="next-gif" onclick="nextGif()"
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- GIF Thumbnails -->
+                        <div id="gif-thumbnails" class="flex gap-2 justify-center"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('active');
+        // 測試數據
+        const testData = [
+            {
+                name: "黏性/蠕變",
+                products: "麵團",
+                results: "膨發性，黏性",
+                description: "測試材料在恆定應力下的變形行為，適用於評估麵團的發酵特性和黏性程度。透過時間-變形曲線分析材料的流變特性。",
+                gifs: ["https://via.placeholder.com/400x225/4CAF50/white?text=黏性測試1", "https://via.placeholder.com/400x225/2196F3/white?text=蠕變測試2"]
+            },
+            {
+                name: "破裂強度測試",
+                products: "餅皮，水餃皮",
+                results: "延伸強度，延展性",
+                description: "測試薄片狀食品的破裂點和延展性，評估餅皮或水餃皮在包餡時的承受能力和韌性表現。",
+                gifs: ["https://via.placeholder.com/400x225/FF9800/white?text=破裂測試1"]
+            },
+            {
+                name: "壓縮測試",
+                products: "麵包，蛋糕，肉類",
+                results: "硬度，彈性，咀嚼性",
+                description: "透過壓縮變形測量食品的硬度、彈性和咀嚼性，是最常用的質構分析方法，適用於各種固體食品。",
+                gifs: ["https://via.placeholder.com/400x225/E91E63/white?text=壓縮測試1", "https://via.placeholder.com/400x225/9C27B0/white?text=硬度測試2"]
+            },
+            {
+                name: "切割測試",
+                products: "蔬菜，水果，肉類",
+                results: "切割力，脆性",
+                description: "模擬刀具切割過程，測量所需的切割力和材料的脆性程度，評估食品的切割難易度和口感特性。",
+                gifs: ["https://via.placeholder.com/400x225/795548/white?text=切割測試1"]
+            },
+            {
+                name: "擠壓測試",
+                products: "果醬，醬料，膠囊",
+                results: "流動性，黏性",
+                description: "測試半固體或液體材料的流動特性，評估醬料的塗抹性、果醬的流動性或膠囊的破裂特性。",
+                gifs: ["https://via.placeholder.com/400x225/607D8B/white?text=擠壓測試1", "https://via.placeholder.com/400x225/37474F/white?text=流動測試2"]
+            },
+            {
+                name: "彎曲測試",
+                products: "餅乾，薄片",
+                results: "韌性，斷裂點",
+                description: "測試薄脆食品的彎曲特性，評估餅乾的酥脆度和斷裂行為，分析材料的脆性和韌性平衡。",
+                gifs: ["https://via.placeholder.com/400x225/FF5722/white?text=彎曲測試1"]
+            },
+            {
+                name: "穿刺測試",
+                products: "水果，肉類，膜材",
+                results: "穿透力，韌性",
+                description: "使用針狀探頭穿透材料表面，測量穿透所需的力量，評估水果皮的韌性或肉類的嫩度。",
+                gifs: ["https://via.placeholder.com/400x225/8BC34A/white?text=穿刺測試1", "https://via.placeholder.com/400x225/CDDC39/white?text=韌性測試2"]
+            },
+            {
+                name: "鬆弛測試",
+                products: "麵團，膠體",
+                results: "應力鬆弛，黏彈性",
+                description: "測試材料在恆定變形下應力隨時間的變化，評估麵團的黏彈性質和膠體的結構穩定性。",
+                gifs: ["https://via.placeholder.com/400x225/FFC107/white?text=鬆弛測試1"]
+            },
+            {
+                name: "拉伸測試",
+                products: "糖果，起司，麵條",
+                results: "拉伸強度，延展性",
+                description: "測試材料的拉伸特性，評估糖果的韌性、起司的延展性或麵條的彈性和斷裂行為。",
+                gifs: ["https://via.placeholder.com/400x225/009688/white?text=拉伸測試1", "https://via.placeholder.com/400x225/00BCD4/white?text=延展測試2"]
+            },
+            {
+                name: "全質構測試",
+                products: "各類食品",
+                results: "完整質構參數",
+                description: "模擬人類咀嚼過程的兩次壓縮測試，提供硬度、彈性、凝聚性、咀嚼性等完整的質構參數分析。",
+                gifs: ["https://via.placeholder.com/400x225/3F51B5/white?text=TPA測試1", "https://via.placeholder.com/400x225/673AB7/white?text=質構分析2", "https://via.placeholder.com/400x225/E91E63/white?text=參數分析3"]
+            }
+        ];
+
+        let currentTestIndex = 0;
+        let currentGifIndex = 0;
+
+        function openModal(testIndex) {
+            currentTestIndex = testIndex;
+            currentGifIndex = 0;
+            updateModalContent();
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
-        // 點擊模態框背景關閉
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function (e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                }
+        function updateModalContent() {
+            const test = testData[currentTestIndex];
+
+            document.getElementById('modal-title').textContent = test.name;
+            document.getElementById('modal-products').textContent = test.products;
+            document.getElementById('modal-results').textContent = test.results;
+            document.getElementById('modal-description').textContent = test.description;
+
+            updateGifDisplay();
+        }
+
+        function updateGifDisplay() {
+            const test = testData[currentTestIndex];
+            const gifs = test.gifs;
+
+            if (gifs.length === 0) return;
+
+            // Update current GIF
+            document.getElementById('current-gif').src = gifs[currentGifIndex];
+
+            // Update counter
+            document.getElementById('gif-counter').textContent = `${currentGifIndex + 1} / ${gifs.length}`;
+
+            // Show/hide navigation buttons
+            const prevBtn = document.getElementById('prev-gif');
+            const nextBtn = document.getElementById('next-gif');
+
+            if (gifs.length <= 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+            }
+
+            // Update thumbnails
+            updateThumbnails();
+        }
+
+        function updateThumbnails() {
+            const test = testData[currentTestIndex];
+            const gifs = test.gifs;
+            const container = document.getElementById('gif-thumbnails');
+
+            container.innerHTML = '';
+
+            if (gifs.length <= 1) return;
+
+            gifs.forEach((gif, index) => {
+                const thumb = document.createElement('button');
+                thumb.className = `w-12 h-8 rounded border-2 overflow-hidden ${index === currentGifIndex ? 'border-blue-500' : 'border-gray-300'} hover:border-blue-400 transition-colors`;
+                thumb.innerHTML = `<img src="${gif}" alt="縮圖 ${index + 1}" class="w-full h-full object-cover">`;
+                thumb.onclick = () => {
+                    currentGifIndex = index;
+                    updateGifDisplay();
+                };
+                container.appendChild(thumb);
             });
+        }
+
+        function previousGif() {
+            const test = testData[currentTestIndex];
+            if (currentGifIndex > 0) {
+                currentGifIndex--;
+                updateGifDisplay();
+            }
+        }
+
+        function nextGif() {
+            const test = testData[currentTestIndex];
+            if (currentGifIndex < test.gifs.length - 1) {
+                currentGifIndex++;
+                updateGifDisplay();
+            }
+        }
+
+        function previousTest() {
+            currentTestIndex = currentTestIndex > 0 ? currentTestIndex - 1 : testData.length - 1;
+            currentGifIndex = 0;
+            updateModalContent();
+        }
+
+        function nextTest() {
+            currentTestIndex = currentTestIndex < testData.length - 1 ? currentTestIndex + 1 : 0;
+            currentGifIndex = 0;
+            updateModalContent();
+        }
+
+        // Close modal when clicking backdrop
+        document.getElementById('modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
-        // ESC 鍵關閉模態框
+        // Keyboard navigation
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
+            if (!document.getElementById('modal').classList.contains('hidden')) {
+                switch (e.key) {
+                    case 'Escape':
+                        closeModal();
+                        break;
+                    case 'ArrowLeft':
+                        if (e.shiftKey) {
+                            previousTest();
+                        } else {
+                            previousGif();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (e.shiftKey) {
+                            nextTest();
+                        } else {
+                            nextGif();
+                        }
+                        break;
+                }
             }
         });
     </script>
