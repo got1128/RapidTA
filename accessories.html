@@ -121,7 +121,7 @@
         }
 
         .principle-diagram {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6dbbf3 0%, #4b65a2 100%);
             border-radius: 20px;
             padding: 2rem;
             position: relative;
@@ -173,6 +173,57 @@
 
         .modal.active .modal-content {
             transform: scale(1);
+        }
+
+        .bg-brown-100 {
+            background-color: #f3e8dd;
+        }
+
+        .text-brown-800 {
+            color: #8b4513;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+
+            .table-row td:nth-child(3),
+            .table-row td:nth-child(4) {
+                display: none;
+            }
+
+            thead th:nth-child(3),
+            thead th:nth-child(4) {
+                display: none;
+            }
+        }
+
+        /* 滾動條樣式 */
+        .overflow-x-auto::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .overflow-x-auto::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* 表格行動畫 */
+        .table-row {
+            transition: all 0.2s ease;
+        }
+
+        .table-row:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -481,13 +532,13 @@
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">圓柱形探頭</h3>
                         <p>細節描述： 直徑1 ~ 50mm</p>
-                        <p>搭配測試： 壓縮測試、穿刺測試</p>
+                        <p>搭配測試： 壓縮測試、穿刺測試、全質構測試(TPA)</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">圓球形探頭</h3>
                         <p>細節描述： 直徑1mm, 5mm, 1/4 inch, 1/2 inch, 1 inch</p>
-                        <p>穿刺測試： 黏性測試</p>
+                        <p>穿刺測試： 穿刺測試，黏性測試</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
@@ -499,63 +550,383 @@
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">針形探頭</h3>
                         <p>細節描述： 直徑1.6mm 尖端30°</p>
-                        <p>搭配測試： 穿刺測試、破裂強度測試</p>
+                        <p>搭配測試： 穿刺測試</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">壓板探頭</h3>
                         <p>細節描述： 直徑70mm、100mm</p>
-                        <p>搭配測試： 壓縮測試、TPA</p>
+                        <p>搭配測試： 壓縮測試、全質構測試(TPA)</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">切刀探頭</h3>
-                        <p>適用樣品： 軟質或中硬質食材（如：起司、泡芙、糕點）</p>
+                        <p>細節描述： 剃刀探頭、壓克力切刀組、不鏽鋼切刀組、雙楔形測試組、銳利切刀測試組</p>
                         <p>搭配測試： 切割測試</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">三點彎曲治具</h3>
-                        <p>適用樣品： 餅乾、棒狀巧克力、穀物棒</p>
-                        <p>搭配測試： 破裂強度測試</p>
+                        <p>細節描述： 三點彎曲測試組、微型三點彎曲測試組(10mm以下樣品使用)</p>
+                        <p>搭配測試： 彎曲測試</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">擠壓類治具</h3>
-                        <p>適用樣品： 半固態食品、美妝品、漿狀物質</p>
-                        <p>搭配測試： 擠壓測試、黏性/蠕變</p>
+                        <p>細節描述： 正擠壓測試組、反擠壓測試組</p>
+                        <p>搭配測試： 擠壓測試</p>
                     </div>
                     <div
                         class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
                         <h3 class="font-bold text-lg">拉伸類夾具</h3>
-                        <p>適用樣品： 麵團、起司片、麵條</p>
+                        <p>細節描述： 麵條拉伸測試組、雙C型鉗夾具、重型雙C型鉗夾具、雙邊夾持夾具</p>
                         <p>搭配測試： 拉伸測試</p>
                     </div>
                 </div>
                 <p class="text-sm text-gray-500 mt-2">✨ 樣品體積小或容易變形時，選擇更細緻的探頭尺寸會更穩定！</p>
             </section>
 
-            <section class="col-span-full" id="probe-types">
-                <h2 class="text-2xl font-semibold mb-4 mt-10 flex items-center gap-2">
-                    🧰 專用治具類
-                </h2>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div
-                        class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
-                        <h3 class="font-bold text-lg">薯片酥脆測試組</h3>
-                        <p>細節描述： </p>
-                        <p>搭配測試： 壓縮測試、穿刺測試</p>
-                    </div>
-                    <div
-                        class="border rounded-xl p-4 bg-white shadow hover:scale-105 transform transition duration-300 card">
-                        <h3 class="font-bold text-lg">雞蛋支撐測試座</h3>
-                        <p>細節描述： </p>
-                        <p>搭配測試： 穿刺測試，破裂強度測試</p>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-500 mt-2">✨ 由幾個不同功能的零配件組成，專門針對某一種產品開發</p>
-            </section>
+            <div class="max-w-7xl mx-auto">
+                <section class="col-span-full" id="probe-types">
+                    <h2 class="text-3xl font-bold mb-6 mt-10 flex items-center gap-3 text-gray-800">
+                        🧰 專用治具類
+                    </h2>
 
+                    <!-- 搜索功能 -->
+                    <div class="mb-6">
+                        <div class="relative">
+                            <input type="text" id="searchInput" placeholder="搜索治具名稱或測試類型..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片展示區域 -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div
+                            class="border rounded-xl p-6 bg-white shadow-md hover:shadow-lg transform transition duration-300 card border-l-4 border-l-blue-500">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">薯片酥脆測試組</h3>
+                            <p class="text-gray-600 mb-3">細節描述：專門測試薯片等脆性食品的酥脆度</p>
+                            <p class="text-sm text-blue-600 font-medium">搭配測試：壓縮測試、穿刺測試</p>
+                        </div>
+                        <div
+                            class="border rounded-xl p-6 bg-white shadow-md hover:shadow-lg transform transition duration-300 card border-l-4 border-l-green-500">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">雞蛋支撐測試座</h3>
+                            <p class="text-gray-600 mb-3">細節描述：提供穩定支撐進行雞蛋破裂測試</p>
+                            <p class="text-sm text-green-600 font-medium">搭配測試：穿刺測試、破裂強度測試</p>
+                        </div>
+                        <div
+                            class="border rounded-xl p-6 bg-white shadow-md hover:shadow-lg transform transition duration-300 card border-l-4 border-l-purple-500">
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">完整治具清單</h3>
+                            <p class="text-gray-600 mb-3">查看下方表格了解所有專用治具的詳細信息</p>
+                            <p class="text-sm text-purple-600 font-medium">共計 23 種專用治具</p>
+                        </div>
+                    </div>
+
+                    <!-- 表格展示 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-800">完整治具清單</h3>
+                            <p class="text-sm text-gray-600 mt-1">點擊表頭可排序，使用上方搜索框可快速查找</p>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full" id="probeTable">
+                                <thead class="bg-gray-50 border-b border-gray-200">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                            onclick="sortTable(0)">
+                                            序號 <span class="ml-1">↕️</span>
+                                        </th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                            onclick="sortTable(1)">
+                                            治具名稱 <span class="ml-1">↕️</span>
+                                        </th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                            onclick="sortTable(2)">
+                                            應用領域 <span class="ml-1">↕️</span>
+                                        </th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                            onclick="sortTable(3)">
+                                            主要測試類型 <span class="ml-1">↕️</span>
+                                        </th>
+                                        <th
+                                            class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            特色標籤
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="tableBody">
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">01</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            油脂塗佈測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">食品加工</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">塗佈測試、黏性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">油脂類</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">02</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            模擬門齒測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">食品質地</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">咬合測試、撕裂測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">生物模擬</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">03</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵團延展性測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">烘焙業</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">拉伸測試、延展性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">04</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵皮穿刺測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">烘焙業</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">穿刺測試、破裂強度</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">05</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵糰硬度測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">烘焙業</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">硬度測試、壓縮測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">06</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            五刃克萊默測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">食品質地</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">剪切測試、切割力測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">切割類</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">07</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">鋼線奶油切刀
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">乳製品</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">切割測試、硬度測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">切割類</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">08</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵糰黏性測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">烘焙業</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">黏性測試、拉伸測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">09</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵條折斷測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">麵條製造</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">折斷測試、脆性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            麵條拉伸測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">麵條製造</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">拉伸測試、彈性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">11</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">通針性測試組
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">材料測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">穿透測試、阻力測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">通用測試</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">90°
+                                            膠帶黏性測試組
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">包裝材料</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">剝離測試、黏合力測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">包裝材料</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            180°膠帶黏性測試組
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">包裝材料</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">剝離測試、黏合力測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">包裝材料</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">14</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            米飯質地測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">穀物食品</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">壓縮測試、彈性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">穀物類</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            薯片酥脆測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">零食製造</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">壓縮測試、穿刺測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">酥脆食品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">16</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">粉圓測試裝置
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">飲品配料</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">彈性測試、口感測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-pink-100 text-pink-800 rounded-full">Q彈食品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">17</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            V型吐司麵包測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">烘焙業</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">壓縮測試、彈性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full">麵製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            銀髮食品測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">銀髮照護</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">硬度測試、吞嚥測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">照護食品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">19</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            起司拉絲測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">乳製品</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">拉伸測試、黏性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">乳製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            冰淇淋甜筒測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">冰品製造</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">穿刺測試、脆度測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-cyan-100 text-cyan-800 rounded-full">冰品類</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">21</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            土壤黏性測試組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">農業土壤</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">黏性測試、剪切測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-brown-100 text-brown-800 rounded-full">土壤材料</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">22</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            貢丸(肉丸)穿刺測試組
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">肉製品</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">穿刺測試、彈性測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">肉製品</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">23</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            紙碗(杯)固定組</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">包裝容器</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">壓縮測試、穿刺測試</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span
+                                                class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">包裝材料</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-4 flex items-center gap-2">
+                        <span>✨</span>
+                        <span>由幾個不同功能的零配件組成，專門針對某一種產品開發</span>
+                    </p>
+
+                    <!-- 統計信息 -->
+                    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-blue-50 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-blue-600">23</div>
+                            <div class="text-sm text-blue-800">總治具數量</div>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-green-600">12</div>
+                            <div class="text-sm text-green-800">應用領域</div>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-purple-600">15</div>
+                            <div class="text-sm text-purple-800">測試類型</div>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-orange-600">9</div>
+                            <div class="text-sm text-orange-800">特色分類</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <section class="col-span-full" id="probe-types">
                 <h2 class="text-2xl font-semibold mb-4 mt-10 flex items-center gap-2">
                     📖 標準方法類
@@ -920,6 +1291,168 @@
                         break;
                 }
             }
+        });
+
+        // 搜索功能
+        function searchTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('probeTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    const cellText = cells[j].textContent.toLowerCase();
+                    if (cellText.includes(filter)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                rows[i].style.display = found ? '' : 'none';
+            }
+        }
+
+        // 排序功能
+        let sortOrder = {};
+        function sortTable(columnIndex) {
+            const table = document.getElementById('probeTable');
+            const tbody = document.getElementById('tableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+
+            const isAsc = sortOrder[columnIndex] !== 'asc';
+            sortOrder[columnIndex] = isAsc ? 'asc' : 'desc';
+
+            rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].textContent.trim();
+                const bText = b.cells[columnIndex].textContent.trim();
+
+                // 如果是序號列，按數字排序
+                if (columnIndex === 0) {
+                    const aNum = parseInt(aText);
+                    const bNum = parseInt(bText);
+                    return isAsc ? aNum - bNum : bNum - aNum;
+                }
+
+                // 其他列按字母排序
+                if (aText < bText) return isAsc ? -1 : 1;
+                if (aText > bText) return isAsc ? 1 : -1;
+                return 0;
+            });
+
+            // 重新插入排序後的行
+            rows.forEach(row => tbody.appendChild(row));
+
+            // 更新排序指示器
+            const headers = table.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                const arrow = header.querySelector('span');
+                if (index === columnIndex) {
+                    arrow.textContent = isAsc ? '↑' : '↓';
+                } else {
+                    arrow.textContent = '↕️';
+                }
+            });
+        }
+
+        // 搜索事件監聽
+        document.getElementById('searchInput').addEventListener('input', searchTable);
+
+        // 高亮搜索結果
+        function highlightSearchResults() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('probeTable');
+            const cells = table.getElementsByTagName('td');
+
+            // 清除之前的高亮
+            for (let cell of cells) {
+                cell.innerHTML = cell.textContent;
+            }
+
+            // 如果有搜索詞，進行高亮
+            if (filter.length > 0) {
+                for (let cell of cells) {
+                    const text = cell.textContent;
+                    const regex = new RegExp(`(${filter})`, 'gi');
+                    if (regex.test(text)) {
+                        cell.innerHTML = text.replace(regex, '<span class="search-highlight">$1</span>');
+                    }
+                }
+            }
+        }
+
+        // 替換搜索功能以包含高亮
+        function searchTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('probeTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    const cellText = cells[j].textContent.toLowerCase();
+                    if (cellText.includes(filter)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                rows[i].style.display = found ? '' : 'none';
+            }
+
+            // 添加高亮效果
+            highlightSearchResults();
+        }
+
+        // 添加表格行點擊效果
+        document.querySelectorAll('.table-row').forEach(row => {
+            row.addEventListener('click', function () {
+                // 移除其他行的選中狀態
+                document.querySelectorAll('.table-row').forEach(r => r.classList.remove('bg-blue-50'));
+                // 添加當前行的選中狀態
+                this.classList.add('bg-blue-50');
+            });
+        });
+
+        // 添加鍵盤快捷鍵支持
+        document.addEventListener('keydown', function (e) {
+            // Ctrl+F 或 Cmd+F 聚焦搜索框
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+
+            // ESC 清空搜索
+            if (e.key === 'Escape') {
+                const searchInput = document.getElementById('searchInput');
+                searchInput.value = '';
+                searchTable();
+                searchInput.blur();
+            }
+        });
+
+        // 添加載入動畫效果
+        window.addEventListener('load', function () {
+            const rows = document.querySelectorAll('.table-row');
+            rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateY(20px)';
+                    row.style.transition = 'all 0.3s ease';
+
+                    setTimeout(() => {
+                        row.style.opacity = '1';
+                        row.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
         });
     </script>
 </body>
