@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidTA 網站地圖</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Favicon 設定 -->
+    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RapidTA" />
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1565c0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(21, 101, 192, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .sitemap-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .sitemap-tree {
+            display: grid;
+            gap: 30px;
+        }
+
+        .main-page {
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .main-page:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.4);
+        }
+
+        .main-page h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .main-page .url {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1565c0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1565c0;
+            font-weight: 600;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .page-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.1);
+        }
+
+        .page-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.2);
+            border-color: #2196f3;
+        }
+
+        .page-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .page-card:hover::before {
+            left: 100%;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1565c0;
+        }
+
+        .page-url {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            word-break: break-all;
+        }
+
+        .priority {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2196f3;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .models-section .page-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #333;
+            border-color: #90caf9;
+        }
+
+        .models-section .page-card:hover {
+            border-color: #42a5f5;
+            box-shadow: 0 10px 25px rgba(66, 165, 245, 0.2);
+        }
+
+        .accessories-section .page-card {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: #333;
+            border-color: #d1d5db;
+        }
+
+        .accessories-section .page-card:hover {
+            border-color: #9ca3af;
+            box-shadow: 0 10px 25px rgba(156, 163, 175, 0.2);
+        }
+
+        .other-section .page-card {
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            color: #333;
+            border-color: #e0e0e0;
+        }
+
+        .other-section .page-card:hover {
+            border-color: #bdbdbd;
+            box-shadow: 0 10px 25px rgba(189, 189, 189, 0.2);
+        }
+
+        .lastmod {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .pages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-gradient-to-r from-blue-100 to-blue-200 py-4 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="self-center lg:self-auto">
+                <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                    class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+            </a>
+            <nav aria-label="主導航">
+                <ul class="flex gap-4">
+                    <li><a href="models.html" class="hover:text-white-600 font-medium">產品</a></li>
+                    <li><a href="accessories.html" class="hover:text-white-600 font-medium">應用資源</a></li>
+                    <li><a href="contact.html" class="hover:text-white-600 font-medium">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+
+
+        <div class="sitemap-container">
+            <div class="sitemap-tree">
+                <!-- 首頁 -->
+                <div class="main-page">
+                    <h2>🏠 首頁</h2>
+                    <div class="url">https://www.rapidta.com.tw/</div>
+                    <div class="lastmod">最後更新: 2025-06-17</div>
+                </div>
+
+                <!-- 統計資訊 -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">17</span>
+                        <span class="stat-label">總頁面數</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">產品型號</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">配件類別</span>
+                    </div>
+                </div>
+
+                <!-- 主要頁面 -->
+                <div class="section">
+                    <h3 class="section-title">📋 主要頁面</h3>
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <div class="priority">0.80</div>
+                            <div class="page-title">🆕 最新消息</div>
+                            <div class="page-url">https://www.rapidta.com.tw/newest.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.80</div>
+                            <div class="page-title">📱 產品型號</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.80</div>
+                            <div class="page-title">🔧 配件產品</div>
+                            <div class="page-url">https://www.rapidta.com.tw/accessories.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.80</div>
+                            <div class="page-title">📞 聯絡我們</div>
+                            <div class="page-url">https://www.rapidta.com.tw/contact.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品型號 -->
+                <div class="section models-section">
+                    <h3 class="section-title">🔬 產品型號系列</h3>
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">💻 軟體選擇</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/select-soft.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">📊 型號選擇</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/select-model.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">⚡ RTA 基本型</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/models_RTA.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🚀 RTA HD 高清版</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/models_RTAHD.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">➕ RTA PLUS 增強版</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/models_RTAPLUS.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🔥 RTA MAX 旗艦版</div>
+                            <div class="page-url">https://www.rapidta.com.tw/models/models_RTAMAX.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 配件產品 -->
+                <div class="section accessories-section">
+                    <h3 class="section-title">🛠️ 配件產品系列</h3>
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🧪 測試配件</div>
+                            <div class="page-url">https://www.rapidta.com.tw/accessories/accessories_test.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🔍 探針配件</div>
+                            <div class="page-url">https://www.rapidta.com.tw/accessories/accessories_probe.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">📚 學習配件</div>
+                            <div class="page-url">https://www.rapidta.com.tw/accessories/accessories_study.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他頁面 -->
+                <div class="section other-section">
+                    <h3 class="section-title">📄 其他頁面</h3>
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🔐 隱私政策</div>
+                            <div class="page-url">https://www.rapidta.com.tw/privacy.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.64</div>
+                            <div class="page-title">🏠 首頁副本</div>
+                            <div class="page-url">https://www.rapidta.com.tw/index.html</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                        <div class="page-card">
+                            <div class="priority">0.51</div>
+                            <div class="page-title">📋 產品型錄 (PDF)</div>
+                            <div class="page-url">
+                                https://www.rapidta.com.tw/files/A4-型錄(英文)-final_ver2_sa0.1_compressed.pdf</div>
+                            <div class="lastmod">最後更新: 2025-06-17</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加點擊效果
+        document.querySelectorAll('.page-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const url = this.querySelector('.page-url').textContent;
+                // 直接跳轉到對應頁面
+                window.open(url, '_blank');
+            });
+        });
+
+        // 為主頁添加點擊效果
+        document.querySelector('.main-page').addEventListener('click', function () {
+            const url = this.querySelector('.url').textContent;
+            window.open(url, '_blank');
+        });
+
+        // 添加動畫效果
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.page-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
