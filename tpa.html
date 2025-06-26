@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全質構分析 TPA | Texture Profile Analysis 完整指南 | 食品質地檢測</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="全質構分析(TPA)完整介紹：包含測試原理、計算公式、參數定義。專業的食品質地檢測方法，涵蓋硬度、彈性、咀嚼性等8項重要參數分析。">
+    <meta name="keywords"
+        content="TPA, 全質構分析, Texture Profile Analysis, 食品質地, 質地檢測, 硬度測試, 彈性測試, 咀嚼性, 食品科學, 質地分析儀, 烘培製品檢測, 肉類質地, 凝膠分析">
+    <meta name="author" content="TPA Analysis Guide">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="全質構分析 TPA | Texture Profile Analysis 完整指南">
+    <meta property="og:description" content="專業的食品質地檢測方法介紹，包含TPA測試原理、計算公式與參數定義。適用於烘培製品、乳製品、凝膠、肉類加工品等領域。">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="TPA 全質構分析指南">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="全質構分析 TPA | Texture Profile Analysis 完整指南">
+    <meta property="twitter:description" content="專業的食品質地檢測方法介紹，包含TPA測試原理、計算公式與參數定義。">
+    <meta property="twitter:image" content="">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="">
+
+    <!-- Language -->
+    <link rel="alternate" hreflang="zh-tw" href="">
+    <link rel="alternate" hreflang="zh-cn" href="">
+    <link rel="alternate" hreflang="en" href="">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "全質構分析 TPA - Texture Profile Analysis 完整指南",
+      "description": "全質構分析(TPA)是針對食品質地口感所發展的專業測試方法，能夠一次提供九種重要的質地參數分析。",
+      "author": {
+        "@type": "Organization",
+        "name": "TPA Analysis Guide"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TPA Analysis Guide"
+      },
+      "datePublished": "2025-06-26",
+      "dateModified": "2025-06-26",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": ""
+      },
+      "articleSection": "食品科學",
+      "keywords": ["TPA", "全質構分析", "Texture Profile Analysis", "食品質地", "質地檢測"],
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "食品質地分析"
+        },
+        {
+          "@type": "Thing", 
+          "name": "TPA測試"
+        },
+        {
+          "@type": "Thing",
+          "name": "質地參數"
+        }
+      ]
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h2::before {
+            content: '';
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .applications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .app-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+        }
+
+        .step {
+            counter-increment: step-counter;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #667eea;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .step::before {
+            content: counter(step-counter);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+            top: 20px;
+        }
+
+        .step-content {
+            margin-left: 20px;
+        }
+
+        /* TPA 曲線圖樣式 */
+        .tpa-chart-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .tpa-chart {
+            max-width: 30%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        .chart-caption {
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            line-height: 1.4;
+
+        }
+
+        .tpa-motion-container {
+            text-align: center;
+        }
+
+        .tpa-motion {
+            max-width: 40%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 15px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .formula-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .formula-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .formula-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .formula-number {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .formula-content {
+            flex: 1;
+        }
+
+        .formula-content h3 {
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .formula-content .formula {
+            background: #667eea;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 0;
+            display: inline-block;
+            min-width: fit-content;
+        }
+
+        .definitions-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .definition {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .definition:hover {
+            background: #f3e5f5;
+            transform: translateX(5px);
+        }
+
+        .definition h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .definition p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .formula-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .formula-container {
+                padding: 15px;
+            }
+
+            .step-content {
+                margin-left: 10px;
+            }
+
+            .tpa-chart-container {
+                padding: 15px;
+            }
+
+            .tpa-chart {
+                max-width: 90%;
+            }
+
+            .tpa-motion {
+                max-width: 90%;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-gradient-to-r from-blue-200 to-blue-800 py-4 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="self-center lg:self-auto">
+                <img src="img_index/LOGO_RapidTA.png" alt="品牌 LOGO"
+                    class="max-h-[56px] w-auto hover:rotate-[-5deg] hover:scale-110 transition duration-300" />
+            </a>
+            <nav aria-label="主導航">
+                <ul class="flex gap-4">
+                    <li><a href="models.html" class="text-white font-medium">產品</a></li>
+                    <li><a href="accessories.html" class="text-white font-medium">應用資源</a></li>
+                    <li><a href="contact.html" class="text-white font-medium">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>全質構分析 (TPA)</h1>
+            <div class="subtitle">Texture Profile Analysis - 食品質地檢測專業指南</div>
+            <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                涵蓋測試原理 | 計算公式 | 參數定義 | 應用領域
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card fade-in">
+                <h2>什麼是全質構分析 (TPA)？</h2>
+                <div class="intro-text">
+                    <strong>全質構分析 (Texture Profile Analysis, TPA)</strong>
+                    是針對食品質地口感所發展的專業測試方法。此技術採用獨特的兩次下壓動作模式，精確模擬人類口腔的咬合型式，經過專業圖型分析工具的解析，能夠一次提供測試人員九種重要的質地參數。
+                </div>
+                <div class="intro-text">
+                    自1960年代發展至今，TPA已成為食品科學領域的重要檢測標準，廣泛應用於各種食品的質地評估與品質控制。
+                </div>
+
+                <div class="highlight">
+                    <strong>TPA 主要應用領域：</strong>
+                    <div class="applications">
+                        <span class="app-tag">烘培製品質地檢測</span>
+                        <span class="app-tag">乳製品分析</span>
+                        <span class="app-tag">凝膠食品測試</span>
+                        <span class="app-tag">肉類加工品評估</span>
+                        <span class="app-tag">糖果點心檢測</span>
+                        <span class="app-tag">蔬果質地分析</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+
+                <h2>TPA 測試動作說明</h2>
+
+                <div class="tpa-motion-container">
+                    <img src="TPA/motionanalysis.svg" alt="TPA測試動作圖" class="tpa-motion">
+                    <p style="margin-bottom: 20px; color: #666; font-style: italic;">
+                        TPA測試透過精密的雙重壓縮程序，模擬人類咀嚼過程，獲得準確的質地數據
+                    </p>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>第一次咬合 (Bite 1)</strong><br>
+                            測試開始，探頭由原本的起始點往下移動。
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>觸發與目標</strong><br>
+                            探頭到達觸發點(根據Trigger force)，開始計算目標距離(Target)，接著往下直到目標。
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>恢復停留</strong><br>
+                            探頭返回到先前的觸發點，並開始停留，停留時間根據樣品恢復速度而定。
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>第二次咬合 (Bite 2)</strong><br>
+                            停留時間完畢之後，探頭由觸發點再度向下。
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>達到目標</strong><br>
+                            到達第一次下壓的目標。
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <strong>返回起點</strong><br>
+                            由目標點往上回到原始起點位置。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h2>TPA 測試曲線圖與計算公式</h2>
+                <p style="margin-bottom: 20px; color: #666; font-style: italic;">
+                    TPA測試過程的力量-時間曲線圖，清楚標示各參數的計算區域
+                </p>
+
+                <div class="tpa-chart-container">
+                    <img src="TPA/curvechart.svg" alt="TPA測試曲線圖" class="tpa-chart">
+                    <div class="chart-caption">
+                        <strong>TPA 測試曲線圖：</strong>顯示雙重壓縮過程中的力量變化，標示出硬度、彈性、粘聚性等關鍵參數的測量區域。
+                        <br>圖中A1-A5代表不同的面積區間，T1-T2代表時間間隔，用於計算各項質地參數。
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 20px; color: #2c3e50;">八大參數計算公式</h3>
+                <div class="formula-container">
+                    <div class="formula-grid">
+                        <div class="formula-item">
+                            <div class="formula-number">1</div>
+                            <div class="formula-content">
+                                <h3>硬度 (Hardness)</h3>
+                                <div class="formula">第一次下壓區段內最大力量值</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">2</div>
+                            <div class="formula-content">
+                                <h3>脆度 (Fracturability)</h3>
+                                <div class="formula">硬度之前出現的較小峰值</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">3</div>
+                            <div class="formula-content">
+                                <h3>粘性 (Adhesiveness)</h3>
+                                <div class="formula">A3 面積</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">4</div>
+                            <div class="formula-content">
+                                <h3>彈性 (Springiness)</h3>
+                                <div class="formula">T2 / T1</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">5</div>
+                            <div class="formula-content">
+                                <h3>咀嚼性 (Chewiness)</h3>
+                                <div class="formula">膠著性 × 彈性 = A2/A1 × 硬度 × 彈性</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">6</div>
+                            <div class="formula-content">
+                                <h3>膠著性 (Gumminess)</h3>
+                                <div class="formula">A2/A1 × 硬度</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">7</div>
+                            <div class="formula-content">
+                                <h3>粘聚性 (Cohesiveness)</h3>
+                                <div class="formula">A2 / A1</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-item">
+                            <div class="formula-number">8</div>
+                            <div class="formula-content">
+                                <h3>回復性 (Resilience)</h3>
+                                <div class="formula">A5 / A4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h2>TPA 參數定義與詳細說明</h2>
+                <p style="margin-bottom: 20px; color: #666; font-style: italic;">
+                    深入了解每個TPA參數的物理意義與在食品科學中的應用價值
+                </p>
+                <div class="definitions-list">
+                    <div class="definition">
+                        <h4>硬度 (Hardness)</h4>
+                        <p>最直接反應口感的一項指標，在質地剖面分析中，直接影響咀嚼性 (Chewiness)、膠著性(Gumminess)及凝聚性(Cohesiveness)。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>脆度 (Fracturability)</h4>
+                        <p>針對樣品有酥脆外殼(外皮)者樣品所獨有，多數樣品都無法測得此參數，一般而言此參數若無法測得，軟體會自動隱藏。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>粘性 (Adhesiveness)</h4>
+                        <p>樣品經過加壓變形之後，樣品表面若有黏性，會產生負向的力量。在食品領域可以解釋為黏牙性口感。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>彈性 (Springiness)</h4>
+                        <p>食物在第一咬結束與第二口開始之間可以恢復的高度。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>咀嚼性 (Chewiness)</h4>
+                        <p>咀嚼性被定義為膠著性 ×
+                            彈性。可以解釋為咀嚼固體食物所需的能量。難以精確測量，因為咀嚼涉及壓縮、剪切、穿刺、粉碎、撕裂、切割等，另外也與口腔狀況有關(唾液分泌、體溫)。這個參數主要用在固體、半固體的口感描述上。
+                        </p>
+                    </div>
+                    <div class="definition">
+                        <h4>膠著性 (Gumminess)</h4>
+                        <p>膠著性被定義為硬度 × 凝聚力。半固體食品的一個特點就是具有低硬度，高凝聚力。因此這項指標應該用於描述半固體食品的口感所使用。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>粘聚性 (Cohesiveness)</h4>
+                        <p>凝聚力被定義為第一壓縮與第二壓縮正受力面積的比值。抗拉伸強度是凝聚力的一種體現，如果凝聚較佳樣品，顯示探頭也較容易保持乾淨。通常測試凝聚力相較脆性、咀嚼性和膠著性為較次要參數。</p>
+                    </div>
+                    <div class="definition">
+                        <h4>回復性 (Resilience)</h4>
+                        <p>韌性是一種測量樣品如何恢復變形的指標包括了速度和力量兩方面。定義為第一下壓時，形變目標之前面積與形變目標之後的面積比值。在量測的時候需要注意樣品的恢復狀況，一般而言會使用一個較慢的測試速度已達到使樣品有足夠時間恢復的狀況。也能確保這個特性的準確性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加滾動動畫效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // 觀察所有卡片元素
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // 為參數和定義添加點擊效果
+        document.querySelectorAll('.parameter, .definition').forEach(item => {
+            item.addEventListener('click', function () {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+
+</html>
